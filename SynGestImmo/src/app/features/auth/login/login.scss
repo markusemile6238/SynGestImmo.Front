@@ -1,4 +1,124 @@
-.login-card{
-      .login-card { max-width: 400px; margin: 80px auto; padding: 16px; }
-    .full { width: 100%; margin-top: 12px; }
+// Conteneur plein écran
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f2f5; // Gris très clair en fond
+  padding: 20px;
+}
+
+// La boîte principale
+.login-wrapper {
+  display: flex;
+  width: 100%;
+  max-width: 1000px;
+  min-height: 600px;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+// Panneau Bleu (Gauche)
+.info-panel {
+  flex: 1.2;
+  background: #2a8e9b;
+  background: linear-gradient(180deg,rgba(42, 142, 155, 1) 0%, rgba(69, 42, 122, 1) 66%);
+  color: white;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+
+  // Petit effet de grille/vagues (optionnel)
+  &::before {
+    content: "d";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    opacity: 0.2;
+    background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0);
+    background-size: 30px 30px;
+  }
+}
+
+.welcome-text {
+  text-align: center;
+  z-index: 1;
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin: 10px 0;
+  }
+
+  .divider {
+    width: 50px;
+    height: 4px;
+    background: white;
+    margin:40px auto;
+    border-radius: 2px;
+  }
+}
+
+// form pannel(Droite)
+.form-panel {
+  flex: 1;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  h2 {
+    color: #3f51b5;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  .subtitle {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  margin-bottom: 30px;
+
+  .forgot-link {
+    text-decoration: none;
+    color: #3f51b5;
+  }
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 25px; // Bouton arrondi comme sur l'image
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+// Responsivité pour mobile
+@media (max-width: 768px) {
+  .login-wrapper {
+    flex-direction: column;
+  }
+  .info-panel {
+    display: none; // On cache la partie bleue sur petit écran
+  }
 }

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 const ACCESS_TOKEN_KEY = 'access_token';
+const REFRESH_TOKEN_KEY = 'refresh_token';
 
 @Injectable({
   providedIn: 'root',
@@ -10,6 +11,7 @@ export class TokenService {
   setAccessToken(token: string) {
     localStorage.setItem(ACCESS_TOKEN_KEY, token);
   }
+
   getAccessToken():string | null {
     return localStorage.getItem(ACCESS_TOKEN_KEY);
   }

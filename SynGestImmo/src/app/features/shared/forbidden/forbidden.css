@@ -1,0 +1,120 @@
+@charset "UTF-8";
+:host {
+  display: block;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #ffffff;
+}
+
+.error-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #000;
+}
+
+.error-wrapper {
+  max-width: 600px;
+  width: 100%;
+}
+
+/* Style du 403 */
+.error-code {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 2rem;
+}
+
+.digit {
+  font-size: 10rem;
+  font-weight: 800;
+  color: #4dc2d3; /* Le turquoise de ton image */
+}
+
+/* Le cercle avec le cadenas */
+.lock-circle {
+  width: 140px;
+  height: 140px;
+  background-color: #d1e9ee; /* Bleu clair transparent derrière le cadenas */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border: 1px solid #c0c0c0;
+}
+
+.lock-icon {
+  position: relative;
+  width: 40px;
+  height: 35px;
+  background-color: #fdd835; /* Jaune du cadenas */
+  border-radius: 4px;
+  border: 2px solid #333;
+}
+
+.lock-icon::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 5px;
+  width: 26px;
+  height: 20px;
+  border: 5px solid #333;
+  border-bottom: none;
+  border-radius: 15px 15px 0 0;
+}
+
+/* Textes */
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: -1px;
+}
+
+.message {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 4rem;
+}
+
+/* Footer */
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  border-top: 1px solid #eee;
+  padding-top: 2rem;
+}
+
+.footer-nav a {
+  text-decoration: none;
+  color: #000;
+  font-size: 0.8rem;
+  font-weight: 700;
+  transition: color 0.2s;
+}
+
+.footer-nav a:hover {
+  color: #4dc2d3;
+}
+
+/* Mobile responsive */
+@media (max-width: 480px) {
+  .digit {
+    font-size: 6rem;
+  }
+  .lock-circle {
+    width: 100px;
+    height: 100px;
+  }
+  .title {
+    font-size: 1.8rem;
+  }
+}
+
+/*# sourceMappingURL=forbidden.css.map */

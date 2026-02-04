@@ -1,23 +1,45 @@
-<mat-card class="login-card">
-    <h2>Connexions</h2>
 
-    <form [formGroup]="form" (ngSubmit)="submit()">
+<div class="login-container">
+  <div class="login-wrapper">
 
-        <mat-form-field appearance="outline" class="full">
-            <mat-label>Email</mat-label>
-             <input matInput formControlName="email" />
-        </mat-form-field>
+    <div class="info-panel">
+      <div class="overlay-content">
+        <p class="company-name">Welcome back !</p>
+        <div class="welcome-text">
+          <p>Nice to see you again into</p>
+          <h1>SynGestImmo</h1>
+          <div class="divider"></div>
+          <h3 class="description">
+            The app that brings us closer
+          </h3>
+        </div>
+      </div>
+    </div>
 
-         <mat-form-field appearance="outline" class="full">
-          <mat-label>Mot de passe</mat-label>
-          <input matInput type="password" formControlName="password" />
-        </mat-form-field>
+    <div class="form-panel">
+      <div class="form-content">
+        <h2>Login Account</h2>
+        <p class="subtitle">Please enter your login information.</p>
+        <form [formGroup]="form" (ngSubmit)="submit()">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Email ID</mat-label>
+            <input matInput formControlName="email" type="email">
+          </mat-form-field>
 
-          <button mat-raised-button color="primary" class="full" type="submit">
-          Se connecter
-        </button>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Password</mat-label>
+            <input matInput [type]="hideP ? 'password' : 'text'" formControlName="password">
+            <button mat-icon-button matSuffix (click)="hideP = !hideP" type="button">
+              <mat-icon>{{hideP ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
 
-    </form>
-</mat-card>
+          <button mat-flat-button color="primary" class="submit-btn" type="submit">
+            SignIn
+          </button>
+        </form>
+      </div>
+    </div>
 
-
+  </div>
+</div>
