@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { TokenService } from '../tokenService/token.service';
 import { HttpClient } from '@angular/common/http';
-import {ApiResponse, LoginRequest, LoginResponse} from '../../../models/auth.model';
+import {ApiResponse, ChangePasswordRequest, LoginRequest, LoginResponse} from '../../../models/auth.model';
 import {map, tap} from 'rxjs';
 import {JwtService} from '../jwtService/jwt.service';
 
@@ -20,7 +20,7 @@ export class AuthService {
 
   login(request: LoginRequest) {
     return this.http
-      .post<ApiResponse<LoginResponse>>(`${this.apiUrl}/auth/login`, request, {withCredentials: true})
+        .post<ApiResponse<LoginResponse>>(`${this.apiUrl}/auth/login`, request, {withCredentials: true})
       .pipe(
         map(res=>{
           if(!res.isSuccess || !res.data){
@@ -77,6 +77,11 @@ export class AuthService {
     ).pipe(
       tap(res=>{this.tokenService.setAccessToken(res.accessToken)})
     )
+  }
+
+  changePassword(request:ChangePasswordRequest){
+    return this.http
+      .post<ApiResponse>(`${this.apiUrl}/auth/change-password`,request, {withCredentials:true});
   }
 
 }

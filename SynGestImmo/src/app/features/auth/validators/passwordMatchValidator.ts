@@ -1,9 +1,9 @@
 ﻿import {AbstractControl, ValidatorFn, ValidationErrors} from '@angular/forms'
-import {ValidationError} from '@angular/forms/signals';
+
 export const PasswordMatchValidator : ValidatorFn = (control:AbstractControl):ValidationErrors | null =>{
 
   const newPassword = control.get('newPassword') ;
-  const confirmNewPassword = control.get('confirmNewPassword') ;
+  const confirmPassword = control.get('confirmPassword') ;
 
-  return newPassword && confirmNewPassword && newPassword.value !== confirmNewPassword.value ? {passwordMismatch: true} : null;
+  return newPassword && confirmPassword && newPassword.value !== confirmPassword.value ? {passwordMismatch: true} : null;
 }

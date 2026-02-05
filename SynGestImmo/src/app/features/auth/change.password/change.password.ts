@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
@@ -32,25 +32,30 @@ export class ChangePassword {
     private fb: FormBuilder,
     private auth: AuthService,
     private router: Router
-
-  ){
+  ) {
 
     this.form = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
       currentPassword: ['', [Validators.required, Validators.minLength(6)]],
       newPassword: ['', [Validators.required, Validators.minLength(6)]],
-      confirmNewPassword: ['', [Validators.required, Validators.minLength(6)]],
-    },{
-      validators : PasswordMatchValidator
+      confirmPassword: ['', [Validators.required, Validators.minLength(6)]],
+    }, {
+      validators: PasswordMatchValidator
     })
 
   }
 
-  submit(){
+  submit() {
 
-    if(this.form.invalid) return;
-    const {email,currentPassword,newPassword,confirmPassword} = this.form.value;
+    if (this.form.invalid) return;
+    const {currentPassword, newPassword, confirmPassword} = this.form.value;
 
+    this.auth.changePassword({currentPassword, newPassword, confirmPassword}).subscribe({
+      next: (res) => {
+        if (res.isSuccess)
+          alert("Password changed successfully.");
+      },
+      error:(err)=>alert(err.message)
+    });
 
   }
 
