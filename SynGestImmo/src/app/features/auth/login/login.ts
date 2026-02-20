@@ -6,7 +6,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { AuthService } from '../../../core/auth/services/AuthService/auth.service';
 import { Router } from '@angular/router';
-import {MatIcon} from '@angular/material/icon';
+import {Topbar} from '../../../core/layout/shared/topbar/topbar';
 
 
 @Component({
@@ -17,7 +17,7 @@ import {MatIcon} from '@angular/material/icon';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatIcon,
+    Topbar,
 
   ],
   templateUrl: './login.html',
@@ -27,7 +27,7 @@ export class Login {
 
   form!: FormGroup;
   hideP =true;
-  hideCp =true;
+
 
 
 

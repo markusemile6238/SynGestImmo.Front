@@ -51,6 +51,7 @@ export class AuthService {
 
     return {
       userId: payload.sub,
+      username: payload.username,
       role:payload['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'],
       mustChangePassword: payload.mustchangePassword ==='true'
     }

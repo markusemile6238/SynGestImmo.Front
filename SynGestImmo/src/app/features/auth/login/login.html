@@ -1,5 +1,5 @@
-
-<div class="login-container">
+<app-topbar />
+<div class="login-container bg-surface-500">
   <div class="login-wrapper">
 
     <div class="info-panel">
@@ -23,18 +23,18 @@
         <form [formGroup]="form" (ngSubmit)="submit()">
           <mat-form-field appearance="outline" class="full-width">
             <mat-label>Email ID</mat-label>
-            <input matInput formControlName="email" type="email">
+            <input matInput formControlName="email" type="email" class="pl-3">
           </mat-form-field>
 
-          <mat-form-field appearance="outline" class="full-width">
+          <mat-form-field appearance="outline" class="w-full">
             <mat-label>Password</mat-label>
-            <input matInput [type]="hideP ? 'password' : 'text'" formControlName="password">
-            <button mat-icon-button matSuffix (click)="hideP = !hideP" type="button">
-              <mat-icon>{{hideP ? 'visibility_off' : 'visibility'}}</mat-icon>
+            <input matInput [type]="hideP ? 'password' : 'text'" formControlName="password" class="pl-3">
+            <button mat-icon-button matSuffix (click)="hideP = !hideP" type="button" class="pr-3" >
+              <i [class]="hideP ? 'fa-solid fa-eye' :'fa-solid fa-eye-slash'" ></i>
             </button>
           </mat-form-field>
 
-          <button mat-flat-button color="primary" class="submit-btn" type="submit">
+          <button class="submit-btn" type="submit">
             SignIn
           </button>
         </form>

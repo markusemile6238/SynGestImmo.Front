@@ -1,0 +1,433 @@
+.text-primary-100 {
+  color: rgb(245.28, 246.56, 248.2) !important;
+}
+
+.bg-primary-100 {
+  background-color: rgb(245.28, 246.56, 248.2) !important;
+}
+
+.text-primary-200 {
+  color: rgb(186.96, 195.92, 207.4) !important;
+}
+
+.bg-primary-200 {
+  background-color: rgb(186.96, 195.92, 207.4) !important;
+}
+
+.text-primary-300 {
+  color: rgb(128.64, 145.28, 166.6) !important;
+}
+
+.bg-primary-300 {
+  background-color: rgb(128.64, 145.28, 166.6) !important;
+}
+
+.text-primary-400 {
+  color: rgb(70.32, 94.64, 125.8) !important;
+}
+
+.bg-primary-400 {
+  background-color: rgb(70.32, 94.64, 125.8) !important;
+}
+
+.text-primary-500 {
+  color: #0C2C55 !important;
+}
+
+.bg-primary-500 {
+  background-color: #0C2C55 !important;
+}
+
+.text-primary-600 {
+  color: rgb(9.12, 33.44, 64.6) !important;
+}
+
+.bg-primary-600 {
+  background-color: rgb(9.12, 33.44, 64.6) !important;
+}
+
+.text-primary-700 {
+  color: rgb(6.24, 22.88, 44.2) !important;
+}
+
+.bg-primary-700 {
+  background-color: rgb(6.24, 22.88, 44.2) !important;
+}
+
+.text-primary-800 {
+  color: rgb(3.36, 12.32, 23.8) !important;
+}
+
+.bg-primary-800 {
+  background-color: rgb(3.36, 12.32, 23.8) !important;
+}
+
+.text-primary-900 {
+  color: rgb(0.48, 1.76, 3.4) !important;
+}
+
+.bg-primary-900 {
+  background-color: rgb(0.48, 1.76, 3.4) !important;
+}
+
+.text-secondary-100 {
+  color: rgb(248.72, 251.16, 251.72) !important;
+}
+
+.bg-secondary-100 {
+  background-color: rgb(248.72, 251.16, 251.72) !important;
+}
+
+.text-secondary-200 {
+  color: rgb(211.04, 228.12, 232.04) !important;
+}
+
+.bg-secondary-200 {
+  background-color: rgb(211.04, 228.12, 232.04) !important;
+}
+
+.text-secondary-300 {
+  color: rgb(173.36, 205.08, 212.36) !important;
+}
+
+.bg-secondary-300 {
+  background-color: rgb(173.36, 205.08, 212.36) !important;
+}
+
+.text-secondary-400 {
+  color: rgb(135.68, 182.04, 192.68) !important;
+}
+
+.bg-secondary-400 {
+  background-color: rgb(135.68, 182.04, 192.68) !important;
+}
+
+.text-secondary-500 {
+  color: #629FAD !important;
+}
+
+.bg-secondary-500 {
+  background-color: #629FAD !important;
+}
+
+.text-secondary-600 {
+  color: rgb(74.48, 120.84, 131.48) !important;
+}
+
+.bg-secondary-600 {
+  background-color: rgb(74.48, 120.84, 131.48) !important;
+}
+
+.text-secondary-700 {
+  color: rgb(50.96, 82.68, 89.96) !important;
+}
+
+.bg-secondary-700 {
+  background-color: rgb(50.96, 82.68, 89.96) !important;
+}
+
+.text-secondary-800 {
+  color: rgb(27.44, 44.52, 48.44) !important;
+}
+
+.bg-secondary-800 {
+  background-color: rgb(27.44, 44.52, 48.44) !important;
+}
+
+.text-secondary-900 {
+  color: rgb(3.92, 6.36, 6.92) !important;
+}
+
+.bg-secondary-900 {
+  background-color: rgb(3.92, 6.36, 6.92) !important;
+}
+
+.text-success-100 {
+  color: rgb(249.2, 250.48, 248.36) !important;
+}
+
+.bg-success-100 {
+  background-color: rgb(249.2, 250.48, 248.36) !important;
+}
+
+.text-success-200 {
+  color: rgb(214.4, 223.36, 208.52) !important;
+}
+
+.bg-success-200 {
+  background-color: rgb(214.4, 223.36, 208.52) !important;
+}
+
+.text-success-300 {
+  color: rgb(179.6, 196.24, 168.68) !important;
+}
+
+.bg-success-300 {
+  background-color: rgb(179.6, 196.24, 168.68) !important;
+}
+
+.text-success-400 {
+  color: rgb(144.8, 169.12, 128.84) !important;
+}
+
+.bg-success-400 {
+  background-color: rgb(144.8, 169.12, 128.84) !important;
+}
+
+.text-success-500 {
+  color: #6E8E59 !important;
+}
+
+.bg-success-500 {
+  background-color: #6E8E59 !important;
+}
+
+.text-success-600 {
+  color: rgb(83.6, 107.92, 67.64) !important;
+}
+
+.bg-success-600 {
+  background-color: rgb(83.6, 107.92, 67.64) !important;
+}
+
+.text-success-700 {
+  color: rgb(57.2, 73.84, 46.28) !important;
+}
+
+.bg-success-700 {
+  background-color: rgb(57.2, 73.84, 46.28) !important;
+}
+
+.text-success-800 {
+  color: rgb(30.8, 39.76, 24.92) !important;
+}
+
+.bg-success-800 {
+  background-color: rgb(30.8, 39.76, 24.92) !important;
+}
+
+.text-success-900 {
+  color: rgb(4.4, 5.68, 3.56) !important;
+}
+
+.bg-success-900 {
+  background-color: rgb(4.4, 5.68, 3.56) !important;
+}
+
+.text-danger-100 {
+  color: rgb(249.6, 245.28, 246.4) !important;
+}
+
+.bg-danger-100 {
+  background-color: rgb(249.6, 245.28, 246.4) !important;
+}
+
+.text-danger-200 {
+  color: rgb(217.2, 186.96, 194.8) !important;
+}
+
+.bg-danger-200 {
+  background-color: rgb(217.2, 186.96, 194.8) !important;
+}
+
+.text-danger-300 {
+  color: rgb(184.8, 128.64, 143.2) !important;
+}
+
+.bg-danger-300 {
+  background-color: rgb(184.8, 128.64, 143.2) !important;
+}
+
+.text-danger-400 {
+  color: rgb(152.4, 70.32, 91.6) !important;
+}
+
+.bg-danger-400 {
+  background-color: rgb(152.4, 70.32, 91.6) !important;
+}
+
+.text-danger-500 {
+  color: #780C28 !important;
+}
+
+.bg-danger-500 {
+  background-color: #780C28 !important;
+}
+
+.text-danger-600 {
+  color: rgb(91.2, 9.12, 30.4) !important;
+}
+
+.bg-danger-600 {
+  background-color: rgb(91.2, 9.12, 30.4) !important;
+}
+
+.text-danger-700 {
+  color: rgb(62.4, 6.24, 20.8) !important;
+}
+
+.bg-danger-700 {
+  background-color: rgb(62.4, 6.24, 20.8) !important;
+}
+
+.text-danger-800 {
+  color: rgb(33.6, 3.36, 11.2) !important;
+}
+
+.bg-danger-800 {
+  background-color: rgb(33.6, 3.36, 11.2) !important;
+}
+
+.text-danger-900 {
+  color: rgb(4.8, 0.48, 1.6) !important;
+}
+
+.bg-danger-900 {
+  background-color: rgb(4.8, 0.48, 1.6) !important;
+}
+
+.text-warning-100 {
+  color: rgb(255, 248.2, 248.2) !important;
+}
+
+.bg-warning-100 {
+  background-color: rgb(255, 248.2, 248.2) !important;
+}
+
+.text-warning-200 {
+  color: rgb(255, 207.4, 207.4) !important;
+}
+
+.bg-warning-200 {
+  background-color: rgb(255, 207.4, 207.4) !important;
+}
+
+.text-warning-300 {
+  color: rgb(255, 166.6, 166.6) !important;
+}
+
+.bg-warning-300 {
+  background-color: rgb(255, 166.6, 166.6) !important;
+}
+
+.text-warning-400 {
+  color: rgb(255, 125.8, 125.8) !important;
+}
+
+.bg-warning-400 {
+  background-color: rgb(255, 125.8, 125.8) !important;
+}
+
+.text-warning-500 {
+  color: #FF5555 !important;
+}
+
+.bg-warning-500 {
+  background-color: #FF5555 !important;
+}
+
+.text-warning-600 {
+  color: rgb(193.8, 64.6, 64.6) !important;
+}
+
+.bg-warning-600 {
+  background-color: rgb(193.8, 64.6, 64.6) !important;
+}
+
+.text-warning-700 {
+  color: rgb(132.6, 44.2, 44.2) !important;
+}
+
+.bg-warning-700 {
+  background-color: rgb(132.6, 44.2, 44.2) !important;
+}
+
+.text-warning-800 {
+  color: rgb(71.4, 23.8, 23.8) !important;
+}
+
+.bg-warning-800 {
+  background-color: rgb(71.4, 23.8, 23.8) !important;
+}
+
+.text-warning-900 {
+  color: rgb(10.2, 3.4, 3.4) !important;
+}
+
+.bg-warning-900 {
+  background-color: rgb(10.2, 3.4, 3.4) !important;
+}
+
+.text-info-100 {
+  color: rgb(246.96, 248.84, 249.08) !important;
+}
+
+.bg-info-100 {
+  background-color: rgb(246.96, 248.84, 249.08) !important;
+}
+
+.text-info-200 {
+  color: rgb(198.72, 211.88, 213.56) !important;
+}
+
+.bg-info-200 {
+  background-color: rgb(198.72, 211.88, 213.56) !important;
+}
+
+.text-info-300 {
+  color: rgb(150.48, 174.92, 178.04) !important;
+}
+
+.bg-info-300 {
+  background-color: rgb(150.48, 174.92, 178.04) !important;
+}
+
+.text-info-400 {
+  color: rgb(102.24, 137.96, 142.52) !important;
+}
+
+.bg-info-400 {
+  background-color: rgb(102.24, 137.96, 142.52) !important;
+}
+
+.text-info-500 {
+  color: #36656B !important;
+}
+
+.bg-info-500 {
+  background-color: #36656B !important;
+}
+
+.text-info-600 {
+  color: rgb(41.04, 76.76, 81.32) !important;
+}
+
+.bg-info-600 {
+  background-color: rgb(41.04, 76.76, 81.32) !important;
+}
+
+.text-info-700 {
+  color: rgb(28.08, 52.52, 55.64) !important;
+}
+
+.bg-info-700 {
+  background-color: rgb(28.08, 52.52, 55.64) !important;
+}
+
+.text-info-800 {
+  color: rgb(15.12, 28.28, 29.96) !important;
+}
+
+.bg-info-800 {
+  background-color: rgb(15.12, 28.28, 29.96) !important;
+}
+
+.text-info-900 {
+  color: rgb(2.16, 4.04, 4.28) !important;
+}
+
+.bg-info-900 {
+  background-color: rgb(2.16, 4.04, 4.28) !important;
+}
+
+/*# sourceMappingURL=color.css.map */

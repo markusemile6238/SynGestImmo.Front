@@ -8,6 +8,7 @@ import {AuthService} from '../../../core/auth/services/AuthService/auth.service'
 import {Router} from '@angular/router';
 import {MatIcon} from '@angular/material/icon';
 import {PasswordMatchValidator} from '../validators/passwordMatchValidator';
+import {Topbar} from '../../../core/layout/shared/topbar/topbar';
 
 @Component({
   selector: 'app-change.password',
@@ -17,7 +18,8 @@ import {PasswordMatchValidator} from '../validators/passwordMatchValidator';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatIcon
+    MatIcon,
+    Topbar
   ],
   templateUrl: './change.password.html',
   styleUrl: './change.password.scss',

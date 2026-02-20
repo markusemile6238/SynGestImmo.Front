@@ -1,0 +1,81 @@
+﻿@use "sass:color";
+@use "sass:math";
+
+$light-colors: (
+  "primary": #292626,
+  "surface": #f1f1f1,
+  "component": #ffffff,
+  "secondary": #004cce,
+  "success": #6E8E59,
+  "danger": #780C28,
+  "warning": #FF5555,
+  "info": #36656B
+);
+
+$dark-colors: (
+  "primary": #779eea,
+  "surface": #181c1f,
+  "component": #0e0e0e,
+  "secondary": #212529,
+  "success": #22946E,
+  "danger": #9C2121,
+  "warning": #a82a71,
+  "info": #21498A
+);
+
+
+@mixin generate-vars($map){
+
+  @each $name, $color in $map {
+
+    @for $i from 1 through 9 {
+      $step: $i * 100;
+      $final-color: $color;
+
+
+      @if $step < 500 {
+        // Plus on est proche de 100, plus on ajoute de blanc (80%, 60%, etc.)
+        $weight: math.div(500 - $step, 5) * 1.2;
+        $final-color: color.mix(white, $color, $weight * 1%);
+      } @else if $step > 500 {
+        // Plus on est proche de 900, plus on ajoute de noir
+        $weight: math.div($step - 500, 5) * 1.2;
+        $final-color: color.mix(black, $color, $weight * 1%);
+      }
+      // On crée la variable CSS réutilisable
+      --#{$name}-#{$step}: #{$final-color};
+    }
+  }
+}
+
+:root{
+  @include generate-vars($light-colors);
+}
+[data-theme='dark']{
+  @include generate-vars($dark-colors);
+}
+
+$color-names: ("primary","component", "surface", "secondary", "success", "danger", "warning", "info");
+
+  @each $name in $color-names {
+    @for $i from 1 through 9 {
+      $step: $i * 100;
+      // Génération des classes de texte
+      .text-#{$name}-#{$step} {
+        color:var(--#{$name}-#{$step}) !important;
+      }
+
+      // Génération des classes de background
+      .bg-#{$name}-#{$step} {
+        background-color: var(--#{$name}-#{$step}) !important;
+      }
+
+      // Génération des classes de background hover
+      .hover\:bg-#{$name}-#{$step}:hover {
+        background-color: var(--#{$name}-#{$step}) !important;
+      }
+    }
+  }
+
+
+

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 export interface JwtPayload{
   sub: string;
   email: string;
+  username: string;
   mustchangePassword: string;
   "http://schemas.microsoft.com/ws/2008/06/identity/claims/role":string;
 }
@@ -17,4 +18,5 @@ export class JwtService {
     const decoded = atob(payload);
     return JSON.parse(decoded);
   }
+
 }
