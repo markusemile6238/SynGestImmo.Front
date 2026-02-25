@@ -1,12 +1,12 @@
 import { Routes } from '@angular/router';
 import {MainLayout} from './core/layout/main-layout/main-layout';
-import {Component} from '@angular/core';
 import {authGuard} from './features/guards/authGuard';
 import {passwordGuard} from './features/guards/passwordGuard';
-import {adminGuard} from './features/guards/admlnGuard';
+import {adminGuard} from './features/guards/adminGuard';
+import {guestGuard} from './features/guards/guest-guard';
 
 export const routes: Routes = [
-  {path:'login',loadComponent:()=>import('./features/auth/login/login').then(m=>m.Login)},
+  {path:'login',loadComponent:()=>import('./features/auth/login/login').then(m=>m.Login),canActivate:[guestGuard]},
   {path:'change-password',loadComponent:()=>import('./features/auth/change.password/change.password').then(m=>m.ChangePassword)},
   {path:'forbidden',loadComponent:()=>import('./features/shared/forbidden/forbidden').then(m=>m.Forbidden)},
   {path:'unauthorized',loadComponent:()=>import('./features/shared/unauthorized/unauthorized').then(m=>m.Unauthorized)},
@@ -23,7 +23,7 @@ export const routes: Routes = [
         {
           path: 'admin',
           canActivate:[adminGuard],
-          loadComponent: () => import('./features/admin/dashboard/admin-dashboard/admin-dashboard').then(m => m.AdminDashboard)
+          loadChildren: () => import('./features/admin/admin.routes').then(m=>m.ADMIN_ROUTES)
         },
       ]
   },

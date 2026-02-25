@@ -1,18 +1,42 @@
-import { Component } from '@angular/core';
-import {MatListItem, MatNavList} from "@angular/material/list";
-import {MatSidenav, MatSidenavContainer, MatSidenavContent} from "@angular/material/sidenav";
-import {RouterLink, RouterOutlet} from "@angular/router";
-import {MatToolbar} from '@angular/material/toolbar';
+import {Component, EventEmitter, Input, input, Output, SimpleChanges} from '@angular/core';
+import {RouterLink} from "@angular/router";
+import {AuthService} from '../../../auth/services/AuthService/auth.service';
+import {NgClass} from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
   imports: [
-    RouterLink
+    RouterLink,
+    NgClass
 
   ],
   templateUrl: './navbar.html',
   styleUrl: './navbar.scss',
 })
 export class Navbar {
+
+  role?: string;
+
+  @Input() isClosed!: boolean;
+  @Output() toggleMenuChange : EventEmitter<boolean> = new EventEmitter<boolean>();
+
+  constructor(
+    private auth :AuthService
+  ){
+
+  }
+
+  ngOnInit():void
+  {
+     const  ctx = this.auth.getUserContext();
+    this.role = ctx?.role;
+    console.log(this.isClosed);
+  }
+
+
+
+  toggleButton():void{
+    this.toggleMenuChange.emit(!this.isClosed);
+  }
 
 }

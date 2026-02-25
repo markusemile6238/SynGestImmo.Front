@@ -9,8 +9,13 @@
     @if (isAuth()) {
         <div class="user-profile d-flex align-items-center mx-5 mt-0 justify-self-end">
           <span class="avatar text-warning-500 bg-component-500 mr-2">ME</span>
-          <span class="text-primary-500">{{context.}}</span>
+          <span class="text-primary-500"></span>
         </div>
+      <div class="user-logout mr-5">
+        <button  matIconButton class="logout-button bg-component-500 text-warning-500" (click)="logout()">
+          <mat-icon><span  class="fa-solid fa-arrow-right-from-bracket pt-1"></span></mat-icon>
+        </button>
+      </div>
     }
     <div class="checkbox-apple mt-2">
       <input class="yep" id="check-apple" type="checkbox" (change)="toggleTheme()">

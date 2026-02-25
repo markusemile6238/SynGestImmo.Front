@@ -49,12 +49,18 @@ export class AuthService {
 
     const payload = this.jwt.decode(token);
 
+    const userRef = payload.userRef;
+
+    console.log(userRef.split('-')[2]);
+
     return {
       userId: payload.sub,
       username: payload.username,
-      role:payload['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'],
+      userRef:  userRef,
+      role: payload.userRef.split('-')[2],
       mustChangePassword: payload.mustchangePassword ==='true'
     }
+    /*role:payload['http://schemas.microsoft.com/ws/2008/06/identity/claims/role']*/
 
   }
 
@@ -64,7 +70,8 @@ export class AuthService {
 
   hasRole(role: string) :boolean{
     const ctx = this.getUserContext();
-    return ctx?.role === role;
+
+    return ctx?.role=== role;
   }
 
   mustChangePassword():boolean{

@@ -44,6 +44,7 @@ export class Login {
   }
 
  submit():void{
+
     if(this.form.invalid) return;
 
     const {email, password} = this.form.value;
@@ -60,6 +61,8 @@ export class Login {
 
         if(!context) return;
 
+
+
         if(context.role === 'SU'){
           this.router.navigateByUrl('/admin');
         }else{
@@ -71,6 +74,9 @@ export class Login {
         alert('Login incorrect');
       }
     })
+
+
+
   }
 
 

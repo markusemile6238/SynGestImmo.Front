@@ -1,16 +1,15 @@
-﻿import {CanActivateFn, Router} from '@angular/router';
+import {CanActivateFn, Router} from '@angular/router';
 import {inject} from '@angular/core';
 import {AuthService} from '../../core/auth/services/AuthService/auth.service';
 
-export const adminGuard : CanActivateFn = ()=>{
+export const guestGuard: CanActivateFn= () =>{
 
   const auth = inject(AuthService);
   const router=inject(Router);
 
-  if(!auth.hasRole('SU')){
-    router.navigateByUrl('/forbidden');
+  if(auth.isAuthenticated()){
+    router.navigate(["/dashboard"]);
     return false;
   }
   return true;
-
 }

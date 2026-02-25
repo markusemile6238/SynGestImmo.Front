@@ -1,11 +1,43 @@
-<div class="menu-wrapper p-0 m-0  flex-column align-items-center h-screen bg-component-500">
-  <h3 class="brand pt-3 text-warning-500  w-full h-md-15 text-center" >SYNGESTIMMO</h3>
+
+
+{{isClosed}}
+<div class="menu-wrapper p-0 m-0  flex-column align-items-center h-screen bg-component-500"
+     [ngClass]="{
+      'menu-open' : !isClosed,
+      'menu-close' : isClosed
+     }">
+  <div class=" pt-3 header-menu d-flex justify-content-between  align-items-center w-full">
+      <div class="brand-wrapper mx-2">
+      <h3 class="brand  text-warning-500 text-center" >SYNGESTIMMO</h3>
+      </div>
+      <div
+        class="menu-toggle bg-primary-500 text-surface-500 ml-5 d-flex justif-content-center align-items-center mx-2"
+        (click)="toggleButton()"
+      >
+          <i class="fa-solid fa-ellipsis ml-1 p-0"></i>
+      </div>
+  </div>
+
+  @if(this.role === "SU")
+  {
   <ul class="nav  align-self-start flex-column pl-2 pt-2">
     <li class="nav-item py-2">
-      <a class="nav-link active" aria-current="page" routerLink="/">Dashboard</a>
+      <a class="nav-link active" aria-current="page" routerLink="/admin">Dashboard</a>
     </li>
     <li class="nav-item py-2">
-      <a class="nav-link active" aria-current="page" routerLink="Admin">Admin</a>
+      <a class="nav-link active" aria-current="user managment" routerLink="admin/users-managment">User Managment</a>
     </li>
   </ul>
+  }
+  @if(this.role === "OWN")
+  {
+  <ul class="nav  align-self-start flex-column pl-2 pt-2">
+    <li class="nav-item py-2">
+      <a class="nav-link active" aria-current="page" routerLink="/dashboard">Dashboard</a>
+    </li>
+  </ul>
+  }
+
+
+
 </div>

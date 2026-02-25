@@ -1,4 +1,6 @@
-  .checkbox-apple {
+
+
+.checkbox-apple {
     position: relative;
     width: 80px;
     height: 25px;
@@ -67,15 +69,25 @@ span{
   font-weight: lighter;
 }
 
-.avatar{
-  width:40px;
-  height:40px;
-  display:flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
+.avatar,.logout-button{
+
+  width:40px !important;
+  height:40px !important;
+  display:flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  border-radius: 50% !important ;
+}
+.logout-button{
+  font-size: 1em !important;
+  &:hover{
+    color:var(--component-500,gray) !important;
+    background-color:var(--warning-500,gray) !important;
+  }
 
 }
 .brand{
 
 }
+
+

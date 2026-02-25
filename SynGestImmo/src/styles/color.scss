@@ -13,7 +13,7 @@ $light-colors: (
 );
 
 $dark-colors: (
-  "primary": #779eea,
+  "primary": #f1f1f1,
   "surface": #181c1f,
   "component": #0e0e0e,
   "secondary": #212529,
@@ -73,6 +73,10 @@ $color-names: ("primary","component", "surface", "secondary", "success", "danger
       // Génération des classes de background hover
       .hover\:bg-#{$name}-#{$step}:hover {
         background-color: var(--#{$name}-#{$step}) !important;
+      }
+      // Génération des classes des border-color
+      .bc-#{$name}-#{$step} {
+        border-color: var(--#{$name}-#{$step}) !important;
       }
     }
   }

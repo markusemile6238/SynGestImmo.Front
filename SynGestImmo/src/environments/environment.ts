@@ -1,4 +1,5 @@
 export const environment = {
-  appName:"SYNGESTIMMO"
+  production: true,
+  appName:'SYNGESTIMMO'
 
 };
