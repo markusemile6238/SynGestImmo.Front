@@ -9,7 +9,8 @@ $light-colors: (
   "success": #6E8E59,
   "danger": #780C28,
   "warning": #FF5555,
-  "info": #36656B
+  "info": #36656B,
+  "light" : #f1f1f1
 );
 
 $dark-colors: (
@@ -20,7 +21,8 @@ $dark-colors: (
   "success": #22946E,
   "danger": #9C2121,
   "warning": #a82a71,
-  "info": #21498A
+  "info": #21498A,
+  "light": #f1f1f1
 );
 
 
@@ -55,7 +57,7 @@ $dark-colors: (
   @include generate-vars($dark-colors);
 }
 
-$color-names: ("primary","component", "surface", "secondary", "success", "danger", "warning", "info");
+$color-names: ("primary","component", "surface", "secondary", "success", "danger", "warning", "info","light");
 
   @each $name in $color-names {
     @for $i from 1 through 9 {

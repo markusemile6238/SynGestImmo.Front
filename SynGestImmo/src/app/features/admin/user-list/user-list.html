@@ -1,12 +1,12 @@
 
-<h3 class="m-2 text-warning-500">Users managment</h3>
+<h3 class="m-2 text-warning-500">Users management</h3>
 
 @if(datasource){
 
 <table mat-table [dataSource]="datasource" class="mat-elevation-z8" >
 
   <ng-container matColumnDef="Id">
-    <th mat-header-cell *matHeaderCellDef></th>
+    <th mat-header-cell *matHeaderCellDef>Id</th>
     <td
       mat-cell
       *matCellDef="let element"
@@ -16,7 +16,7 @@
   </ng-container>
 
   <ng-container matColumnDef="Username">
-    <th mat-header-cell *matHeaderCellDef></th>
+    <th mat-header-cell *matHeaderCellDef>Username</th>
     <td
       mat-cell
       *matCellDef="let element"
@@ -25,7 +25,7 @@
   </ng-container>
 
   <ng-container matColumnDef="Email">
-    <th mat-header-cell *matHeaderCellDef></th>
+    <th mat-header-cell *matHeaderCellDef>Email</th>
     <td
       mat-cell
       *matCellDef="let element"
@@ -37,7 +37,7 @@
 
 
   <ng-container matColumnDef="UserRef">
-    <th mat-header-cell *matHeaderCellDef></th>
+    <th mat-header-cell *matHeaderCellDef>UserRef</th>
     <td
       mat-cell
       *matCellDef="let element"
@@ -49,7 +49,7 @@
 
 
   <ng-container matColumnDef="Entity Id">
-    <th mat-header-cell *matHeaderCellDef></th>
+    <th mat-header-cell *matHeaderCellDef>Entity Id<th>
     <td
       mat-cell
       *matCellDef="let element"
@@ -60,13 +60,48 @@
   </ng-container>
 
   <ng-container matColumnDef="Role name">
-    <th mat-header-cell *matHeaderCellDef></th>
+    <th mat-header-cell *matHeaderCellDef>Role</th>
     <td
       mat-cell
       *matCellDef="let element"
       class=" text-primary-300  bc-primary-800"
     >
       <span>{{element.roleName}}</span>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Create at">
+    <th mat-header-cell *matHeaderCellDef >Create at</th>
+    <td
+      mat-cell
+      *matCellDef="let element"
+      class=" text-primary-300  bc-primary-800"
+    >
+      <span>{{element.createdAt | date:'dd/MM/yyyy'}}</span>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Update at">
+    <th mat-header-cell *matHeaderCellDef>Last update</th>
+    <td
+      mat-cell
+      *matCellDef="let element"
+      class=" text-primary-300  bc-primary-800"
+    >
+      <span>{{element.updatedAt | date:'dd/MM/yyyy'}}</span>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Actions">
+    <th mat-header-cell *matHeaderCellDef>Action</th>
+    <td
+      mat-cell
+      *matCellDef="let element"
+      class=" text-primary-300  bc-primary-800"
+    >
+      <button class="btn btn-sm mx-1 bg-secondary-500 hover:bg-secondary-400 text-light-500"><i class="fa-solid fa-pen"></i></button>
+      <button class="btn btn-sm bg-danger-500 hover:bg-danger-400 text-light-500"><i class="fa-solid fa-trash"></i></button>
+      <button class="btn btn-sm bg-warning-500 hover:bg-warning-400 text-light-500 mx-1"><i class="fa-solid fa-lock-open"></i></button>
     </td>
   </ng-container>
 

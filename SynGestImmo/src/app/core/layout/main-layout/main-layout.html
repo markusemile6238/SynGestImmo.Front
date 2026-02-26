@@ -1,12 +1,19 @@
-<div class="main-container d-flex align-item-start col-md-12 m-0 p-0">
-    <div class="p-0 m-0 left-container col-md-2 h-screen">
+<div class="main-container d-flex align-item-start m-0 p-0 w-full">
+    <div
+      class="left-container h-screen"
+      [ngClass]="{
+       'menu-close':isClosed,
+       'menu-open':!isClosed,
+       }"
+    >
      <app-navbar [isClosed]="isClosed" (toggleMenuChange)="toggleMenu($event)" />
     </div>
     <div class="center-container flex-column w-md-100">
-        <div class="banner-container h-md-5 ">
+        <div class="banner-container h-md-5 w-full"
+           >
           <app-topbar/>
         </div>
-      <div class="content-container bg-surface-500 h-screen">
+      <div class="content-container bg-surface-500 h-screen w-full">
         <router-outlet/>
       </div>
     </div>

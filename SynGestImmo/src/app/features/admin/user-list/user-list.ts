@@ -12,8 +12,7 @@ import { MatTableModule} from '@angular/material/table';
 })
 export class UserList {
 
-  displayedColumns:string[] = ['Id','Username','Email','UserRef','Entity Id', 'Role name'];
- // displayedColumns:string[] = ['Id','Username','Email', 'UserRef','Email C','Entity Id' ,'Role Id','Role Name','Create at', 'Update at']
+  displayedColumns:string[] = ['Id','Username','Email','UserRef','Entity Id', 'Role name', 'Create at','Update at','Actions'];
   datasource: UserModel[] = [];
   error! : string;
   constructor(

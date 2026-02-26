@@ -1,12 +1,12 @@
-.layout {
-  height: calc(100vh - 64px);
-}
-mat-sidenav{
-  width:200px !important;
-}
+@use "sass:math";
 .content {
   padding: 16px;
 }
 .menu-close{
-  background-color:red !important;
+  margin-left: - math.div(100vw,12) * 2 ;
+}
+.left-container{
+  width: math.div(100vw,12) * 3 !important;
+  margin-left:0.03px;
+  transition: margin-left 0.3s ease-in-out;
 }

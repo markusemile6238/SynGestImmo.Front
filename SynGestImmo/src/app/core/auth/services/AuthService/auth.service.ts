@@ -81,7 +81,7 @@ export class AuthService {
 
   refresh(){
     return this.http.post<{accessToken:string }>(
-      'https://localhost:7123/api/auth/refresh',{},{withCredentials:true}
+      `${this.apiUrl}/auth/refresh`,{},{withCredentials:true}
     ).pipe(
       tap(res=>{this.tokenService.setAccessToken(res.accessToken)})
     )
