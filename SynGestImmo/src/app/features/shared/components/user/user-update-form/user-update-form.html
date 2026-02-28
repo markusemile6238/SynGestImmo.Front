@@ -1,0 +1,20 @@
+@if(user){
+  <h3>Update user profile</h3>
+  <div class="form-container">
+  <form [formGroup]="form">
+    <div class="input-group">
+      <input name="id" class="input-text" formControlName="id" required>
+      <label for="id" class="label-input">Id</label>
+    </div>
+    <div class="input-group">
+      <input name="username" class="input-text" formControlName="username" required>
+      <label for="username" class="label-input">username</label>
+    </div>
+    <div class="input-group">
+      <input name="email" class="input-text" formControlName="email" required>
+      <label for="email" class="label-input">Email</label>
+    </div>
+
+  </form>
+</div>
+}

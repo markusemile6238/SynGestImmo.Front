@@ -9,4 +9,34 @@
   }
   margin-left:0.3em;
 }
+.nav {
+  width: 98% !important;
+}
+.nav-item{
+  display:flex;
+  width:100%;
+  margin-top:1em;
+  margin-left:.5em;
+  justify-content: space-between;
+  span,a{
+    color: var(--primary-500,#000000) !important;
+  }
+  span{
+    margin-right:1.2em;
+  }
+  &:hover{
+    cursor:pointer;
+  }
+}
+  .nav-item:hover span, .nav-item span:hover{
+    background-color: var(--warning-500,blue) !important;
+    color: var(--light-500,blue) !important;
+    }
 
+ @media (max-width:768px){
+   .menu-wrapper{
+      position: absolute;
+     left:-98% !important;
+     top:0 !important;
+    }
+ }

@@ -1,0 +1,91 @@
+@if (user) {
+  <div class="component-card sm-d-column d-flex bg-component-500 align-items-center relative">
+    <div class="edit-icon absolute">
+      <i class="fa-solid fa-pen px-2" (click)="updateMode=!updateMode"></i>
+    </div>
+    <form [formGroup]="form" class="w-full">
+
+      <!--BADGE -->
+      <div class="col-md-4 d-flex no-wrap w-full ">
+        <div class="badge col-md-3">
+      <span class="bg-warning-500 text-surface-500">
+        <i class="icone">{{ badgeInitial }}</i>
+      </span>
+        </div>
+        <div class="user-info grid" style="width:60%;">
+
+          <!-- USERNAME -->
+          @if (updateMode) {
+            <div class="input-group">
+              <input type="text" name="username" class="input-text" formControlName="username" placeholder="username"
+                     required (blur)="updateUser()">
+            </div>
+          } @else {
+            <p>
+              <span class="font-title text-warning-500">{{ user.username }}</span>
+            </p>
+          }
+
+          <!-- EMAIL -->
+          @if (updateMode) {
+            <div class="input-group">
+              <input type="email" name="email" class="input-text" formControlName="email" placeholder="email" required
+                     (blur)="updateUser()">
+            </div>
+          } @else {
+
+            <p>
+              <span>{{ user.email }}</span>
+            </p>
+          }
+        </div>
+      </div>
+
+
+      <div class="vertical-divider mx-3"></div>
+      <div class="col-md-8 d-flex justify-content-center">
+        <div class="user-infos mx-2 w-full sm-d-column md-flex">
+          <p><span class="label">ID:</span><span>{{ user.id }}</span></p>
+          <p><span class="label">User ref:</span><span>{{ user.userRef }}</span></p>
+          <p><span class="label">Entity Id:</span><span>{{ user.entityId }}</span></p>
+          <p><span class="label">Is Active:</span><span [ngStyle]="{
+          'color':user.isActive ? 'var(--success-500,green)':'var(--danger-500,red'
+          }">
+
+            @if(updateMode){
+
+              <input name="isActive" [value]="true" type="radio" [checked]="user.isActive" formControlName="isActive" (blur)="updateUser()"> Active
+              <input name="isActive" [value]="false" type="radio" [checked]="!user.isActive"  formControlName="isActive" (blur)="updateUser()"> Inactive
+
+
+            }@else{
+
+
+            @if (user.isActive) {
+              active
+            } @else {
+              inactive
+            }
+            }
+
+          </span>
+          </p>
+          <p><span class="label">Created At:</span><span>{{ user.createdAt  | date:'dd-MM-yyyy' }}</span></p>
+          <p><span class="label">Last Update:</span><span>{{ user.updatedAt | date:'dd-MM-yyyy' }}</span></p>
+
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <!--  @if(modalIsOpen && user){-->
+
+    <!--  <div class="modal bg-surface-300">-->
+    <!--    <div class="close-modal">-->
+    <!--      <i class="ml-auto icon-lg fa-solid fa-circle-xmark text-danger-500" (click)="modalIsOpen=!modalIsOpen"></i>-->
+    <!--      <app-user-update-form [userProfile]="user" />-->
+    <!--    </div>-->
+    <!--  </div>-->
+
+    <!--  }-->
+}

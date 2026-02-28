@@ -7,7 +7,7 @@ import {NgClass} from '@angular/common';
   selector: 'app-navbar',
   imports: [
     RouterLink,
-    NgClass
+
 
   ],
   templateUrl: './navbar.html',

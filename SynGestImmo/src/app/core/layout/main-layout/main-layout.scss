@@ -3,10 +3,11 @@
   padding: 16px;
 }
 .menu-close{
-  margin-left: - math.div(100vw,12) * 2 ;
+  margin-left:-(math.div(100vw,12)*2 - 5) !important;
 }
 .left-container{
-  width: math.div(100vw,12) * 3 !important;
   margin-left:0.03px;
+    width:(math.div(100vw,12)*2) !important;
   transition: margin-left 0.3s ease-in-out;
 }
+

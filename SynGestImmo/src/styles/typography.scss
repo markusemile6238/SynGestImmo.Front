@@ -1,9 +1,19 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Poppins:wght@100;300;400;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
 body{
   font-family: 'Poppins', sans-serif !important;
   font-size:1em;
+}
+
+.font-title{
+  font-family: 'Pacifico', sans-serif;
+  font-size:1.5em;
+}
+.font-light{
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: normal;
 }
 
 .text-center{

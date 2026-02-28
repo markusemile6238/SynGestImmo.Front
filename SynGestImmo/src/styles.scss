@@ -2,18 +2,20 @@
 @use 'styles/color.scss' as color;
 @use 'styles/typography.scss' as typography;
 
-
-
-
 *{
   margin:0;
   padding:0;
 }
 
-a{
-  color: var(--primary-500,red) !important;
-  &:hover{
-    color: var(--warning-400,red) !important;
-  }
+.snackbar-success{
+  background-color:var(--success-500,green) !important;
+  color:var(--light-500,#fff) !important;
 }
-
+.snackbar-error{
+  background-color:var(--danger-500,red) !important;
+  color:var(--light-500,#fff) !important;
+}
+.snackbar-info{
+  background-color:var(--info-500, #add0c9) !important;
+  color:var(--light-500, #5c5c5c) !important;
+}

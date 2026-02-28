@@ -1,0 +1,16 @@
+
+<!--  on peut modifier
+      - username
+      - email
+      - role
+      - locker (isActive)-->
+
+
+@if(user){
+
+<div class="px-2 userdetail-page text-primary-500 d-flex justify-content-start wrap">
+  <div class="id-card w-full">
+    <app-user-id [user]="user"/>
+  </div>
+</div>
+}

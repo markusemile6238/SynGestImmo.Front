@@ -1,6 +1,6 @@
 <div class="main-container d-flex align-item-start m-0 p-0 w-full">
     <div
-      class="left-container h-screen"
+      class="left-container h-screen sticky"
       [ngClass]="{
        'menu-close':isClosed,
        'menu-open':!isClosed,
@@ -8,8 +8,8 @@
     >
      <app-navbar [isClosed]="isClosed" (toggleMenuChange)="toggleMenu($event)" />
     </div>
-    <div class="center-container flex-column w-md-100">
-        <div class="banner-container h-md-5 w-full"
+    <div class="center-container flex-column w-sm-25  w-md-100" style="z-index:9999">
+        <div class="banner-container h-md-5 w-full sticky"
            >
           <app-topbar/>
         </div>

@@ -8,6 +8,7 @@
     isEmailConfirmed: boolean,
     entityId: string,
     roleId: number,
+    isActive:boolean,
     roleName: string,
     createdAt: string,
     updatedAt: string
@@ -16,6 +17,11 @@
 export interface GetAllResponse
 {
   data: UserModel[],
+  isSuccess: boolean,
+  statusCode: number
+}export interface GetUserResponse
+{
+  data: UserModel,
   isSuccess: boolean,
   statusCode: number
 }

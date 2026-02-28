@@ -1,5 +1,14 @@
+<div class="header d-flex justify-content-between align-items-center pt-5">
+  <h3 class="m-2 text-warning-500">Users management</h3>
+  <span
+    class="btn  btn-lg bg-success-500 hover:bg-success-200 text-light-500 hover:text-success-500 circle  mr-5"
+    title="add new user"
+    (click)="isModalOpen=!isModalOpen"
+    >
+    <i class=" fa-solid fa-user-plus"></i>
+  </span>
+</div>
 
-<h3 class="m-2 text-warning-500">Users management</h3>
 
 @if(datasource){
 
@@ -99,9 +108,10 @@
       *matCellDef="let element"
       class=" text-primary-300  bc-primary-800"
     >
-      <button class="btn btn-sm mx-1 bg-secondary-500 hover:bg-secondary-400 text-light-500"><i class="fa-solid fa-pen"></i></button>
-      <button class="btn btn-sm bg-danger-500 hover:bg-danger-400 text-light-500"><i class="fa-solid fa-trash"></i></button>
-      <button class="btn btn-sm bg-warning-500 hover:bg-warning-400 text-light-500 mx-1"><i class="fa-solid fa-lock-open"></i></button>
+
+      <button class="btn btn-md mx-1 bg-info-500 hover:bg-info-400 text-light-500 roudned" [routerLink]="['/admin/user-detail/',element.id]" ><i class="fa-solid fa-pen"></i></button>
+      <button class="btn btn-md bg-danger-500 hover:bg-danger-400 text-light-500  roudned"><i class="fa-solid fa-trash"></i></button>
+      <button class="btn btn-md bg-warning-500 hover:bg-warning-400 text-light-500 mx-1  roudned"><i class="fa-solid fa-lock-open"></i></button>
     </td>
   </ng-container>
 
@@ -109,3 +119,14 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns;" class=" hover:bg-primary-800"></tr>
 </table>
 }
+@if(isModalOpen){
+  <div class="modal bg-surface-600" (mouseleave)="isModalOpen=false">
+    <div class="modal-header">
+
+    </div>
+    <div class="modal-content">
+
+    </div>
+  </div>
+}
+

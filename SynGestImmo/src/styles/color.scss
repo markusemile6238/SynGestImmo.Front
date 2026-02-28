@@ -5,12 +5,13 @@ $light-colors: (
   "primary": #292626,
   "surface": #f1f1f1,
   "component": #ffffff,
-  "secondary": #004cce,
+  "secondary": #a0d3ee,
   "success": #6E8E59,
   "danger": #780C28,
   "warning": #FF5555,
   "info": #36656B,
-  "light" : #f1f1f1
+  "light" : #f1f1f1,
+
 );
 
 $dark-colors: (
@@ -18,12 +19,13 @@ $dark-colors: (
   "surface": #181c1f,
   "component": #0e0e0e,
   "secondary": #212529,
-  "success": #22946E,
+  "success": #2a9022,
   "danger": #9C2121,
   "warning": #a82a71,
   "info": #21498A,
   "light": #f1f1f1
 );
+
 
 
 @mixin generate-vars($map){
@@ -52,36 +54,58 @@ $dark-colors: (
 
 :root{
   @include generate-vars($light-colors);
+
+  .vertical-divider{
+    display:block;
+    height:100%;
+    min-width:0.1px !important;
+    border-right:0.5px solid var(--surface-600, #ececec);
+    box-shadow: 0 0 10px 1px var(--surface-600, #ececec);
+    //box-shadow: 0 0 5px 2px rgba(0,0,0,.1);
+  }
 }
 [data-theme='dark']{
   @include generate-vars($dark-colors);
+
+  .vertical-divider{
+    display:block;
+    height:100%;
+    min-width:0.1px !important;
+    border-right:0.5px solid var(--surface-400, #ececec);
+    box-shadow: 0 0 10px 1px var(--surface-400, #ececec);
+    //box-shadow: 0 0 5px 2px rgba(0,0,0,.1);
+  }
 }
+
 
 $color-names: ("primary","component", "surface", "secondary", "success", "danger", "warning", "info","light");
 
-  @each $name in $color-names {
-    @for $i from 1 through 9 {
-      $step: $i * 100;
-      // Génération des classes de texte
-      .text-#{$name}-#{$step} {
-        color:var(--#{$name}-#{$step}) !important;
-      }
+@each $name in $color-names {
+  @for $i from 1 through 9 {
+    $step: $i * 100;
+    // Génération des classes de texte
+    .text-#{$name}-#{$step} {
+      color:var(--#{$name}-#{$step}) !important;
+    }
 
-      // Génération des classes de background
-      .bg-#{$name}-#{$step} {
-        background-color: var(--#{$name}-#{$step}) !important;
-      }
+    // Génération des classes de background
+    .bg-#{$name}-#{$step} {
+      background-color: var(--#{$name}-#{$step}) !important;
+    }
 
-      // Génération des classes de background hover
-      .hover\:bg-#{$name}-#{$step}:hover {
-        background-color: var(--#{$name}-#{$step}) !important;
-      }
-      // Génération des classes des border-color
-      .bc-#{$name}-#{$step} {
-        border-color: var(--#{$name}-#{$step}) !important;
-      }
+    // Génération des classes de background hover
+    .hover\:bg-#{$name}-#{$step}:hover {
+      background-color: var(--#{$name}-#{$step}) !important;
+    }
+    // Génération des classes de text hover
+    .hover\:text-#{$name}-#{$step}:hover {
+      color: var(--#{$name}-#{$step}) !important;
+    }
+    // Génération des classes des border-color
+    .bc-#{$name}-#{$step} {
+      border-color: var(--#{$name}-#{$step}) !important;
     }
   }
-
+}
 
 

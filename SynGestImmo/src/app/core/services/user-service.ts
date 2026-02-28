@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {GetAllResponse, UserModel} from '../models/user.model';
+import {GetAllResponse, GetUserResponse, UserModel} from '../models/user.model';
 import {map, Observable} from 'rxjs';
 
 @Injectable({
@@ -9,7 +9,7 @@ import {map, Observable} from 'rxjs';
 })
 export class UserService {
 
-  private basePath: string = "https://localhost:7123/api/auth/admin/user/"
+  private basePath: string = "https://localhost:7123/api/admin/user/"
   private userList: UserModel[] = [];
 
   constructor(
@@ -28,4 +28,17 @@ export class UserService {
         })
     );
   }
+
+  getUserById(id:string|null): Observable<UserModel>{
+    return this.http.get<GetUserResponse>(`${this.basePath}detail/${id}`, {withCredentials: true})
+      .pipe(
+        map((res: GetUserResponse) => {
+          if (!res.isSuccess && !res.data)
+            throw new Error('Failed to get all user');
+          return res.data;
+        })
+      );
+  }
+
+
 }
