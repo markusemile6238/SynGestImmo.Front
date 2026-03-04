@@ -1,0 +1,27 @@
+<div class="input-group mb-3">
+  <div class="input-field d-flex" style="position:absolute">
+    <input
+      id="i{{name}}"
+      [type]="type === 'password' ? (showPassword ? 'text':'password' ) : type "
+      [formControl]="control"
+      class="form-control"
+      aria-label="{{name}}"
+      aria-describedby="{{name}}"
+      [class.ng-touched]="control.touched"
+      [class.ng-valid]="control.valid"
+      [class.invalid-with-content]="control.invalid && control.value?.length>0"
+      value=""
+    >
+    @if(type==="password"){
+      <span class="eye-icon">
+    <i [class]="showPassword ? 'fa-solid fa-eye' : 'fa-solid fa-eye-slash' " (click)="showPassword=!showPassword"></i>
+    </span>
+    }
+
+    <label [for]="name" class="input-group-text" [id]=`l${name}`>{{ label }}</label>
+    <hr
+      [class.input-line-valid]="isvalid"
+      [class.input-line-invalid]="!isvalid"
+    />
+  </div>
+</div>

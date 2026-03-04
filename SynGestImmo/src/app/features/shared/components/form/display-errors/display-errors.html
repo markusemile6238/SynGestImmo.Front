@@ -1,0 +1,12 @@
+<div class="errorMessage">
+  @for( entry of form.controls | keyvalue;track entry.key){
+    @if(entry.value.touched && entry.value.invalid){
+      @for(error of entry.value.errors | keyvalue; track error.key){
+        <small class="error">{{ getErrorMessage(entry.key, error.key) }}</small>
+      }
+    }
+  }
+  @if (form.errors?.['mismatchPassword'] && form.touched) {
+    <small class="error">{{ getErrorMessage("confirmPassword","mismatchPassword") }}</small>
+  }
+</div>

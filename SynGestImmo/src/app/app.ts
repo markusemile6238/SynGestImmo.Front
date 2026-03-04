@@ -23,7 +23,8 @@ export class App {
       event instanceof NavigationEnd ||
       event instanceof NavigationStart ||
       event instanceof ResolveStart ||
-      event instanceof  ResolveEnd)
+      event instanceof  ResolveEnd
+      )
     ).subscribe(event=>{
       if(event instanceof NavigationStart || event instanceof ResolveStart){
         this.isLoading = true;

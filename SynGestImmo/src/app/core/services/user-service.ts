@@ -1,7 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {GetAllResponse, GetUserResponse, UserModel} from '../models/user.model';
+import {AdduserBody, GetAllResponse, GetUserResponse, UserModel, UserResponse} from '../models/user.model';
 import {map, Observable} from 'rxjs';
+import {AddUserForm} from '../../features/admin/user/add-user-form/add-user-form';
 
 @Injectable({
   providedIn: 'root'
@@ -40,5 +41,17 @@ export class UserService {
       );
   }
 
+  createNewUser(user: AddUserForm): Observable<UserResponse>{
+    return this.http.post<UserResponse>(`${this.basePath}`, user, {withCredentials: true}).
+      pipe(
+        map((res: UserResponse)=>{
+          if(res.statusCode){
+            return res;
+          }else{
+            throw new Error('Failed to create new user');
+          }
+        })
+    )
+  }
 
 }

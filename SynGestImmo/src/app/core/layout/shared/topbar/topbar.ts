@@ -1,17 +1,17 @@
-import {Component, ViewEncapsulation} from '@angular/core';
+import {Component, Input, ViewEncapsulation} from '@angular/core';
 import {AuthService} from '../../../auth/services/AuthService/auth.service';
-import {environment} from '../../../../../environments/environment';
-import {JwtService} from '../../../auth/services/jwtService/jwt.service';
-import {MatButton, MatIconButton} from '@angular/material/button';
-import {MatIcon} from '@angular/material/icon';
 import {Router} from '@angular/router';
+import {UserUtilityService} from '../../../../features/shared/services/user-utility-service';
+import {NgStyle} from '@angular/common';
+import {MatIconButton} from '@angular/material/button';
 
 
 @Component({
   selector: 'app-topbar',
   imports: [
-    MatIcon,
+    NgStyle,
     MatIconButton
+
   ],
   templateUrl: './topbar.html',
   styleUrl: './topbar.scss',
@@ -19,14 +19,21 @@ import {Router} from '@angular/router';
 })
 export class Topbar {
 
+  initialUser :string ='';
+
+  @Input() isMobile!:boolean;
+  @Input() isCollapsed!:boolean;
+  @Input() appName!:string;
+
   constructor(
     private authService: AuthService,
+    private userTools :UserUtilityService,
     private router: Router
   ) {
   }
 
   isDarkMode = false;
-  appName!  :string ;
+  protected ngClass: any;
 
 
   isAuth() :boolean{
@@ -45,6 +52,7 @@ export class Topbar {
 }
 
   ngOnInit():void{
-    this.appName = environment.appName;
+    const user = this.authService.getUserContext()
+    this.initialUser= this.userTools.getInitial(user!.username);
   }
 }

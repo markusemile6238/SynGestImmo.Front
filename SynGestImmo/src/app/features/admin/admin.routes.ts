@@ -10,8 +10,8 @@ export const ADMIN_ROUTES: Routes=[
 
   },
   {
-    path:'users-managment',
-    loadComponent:()=>import('./user-list/user-list')
+    path:'users-management',
+    loadComponent:()=>import('./user/user-list/user-list')
       .then(m => m.UserList),
     resolve:{users: usersResolver}
   },

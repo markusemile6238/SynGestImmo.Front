@@ -1,42 +1,87 @@
-.menu-toggle{
-  transition:all 0.2s ease-in-out;
-  width: 30px;
-  height:30px;
-  cursor:pointer;
-  border-radius:50%;
-  &:hover{
-    transform: rotate(90deg);
-  }
-  margin-left:0.3em;
+.slideText{
+  transform: translateX(-270px);
 }
-.nav {
-  width: 98% !important;
-}
-.nav-item{
-  display:flex;
-  width:100%;
-  margin-top:1em;
-  margin-left:.5em;
-  justify-content: space-between;
-  span,a{
-    color: var(--primary-500,#000000) !important;
-  }
-  span{
-    margin-right:1.2em;
-  }
-  &:hover{
-    cursor:pointer;
-  }
-}
-  .nav-item:hover span, .nav-item span:hover{
-    background-color: var(--warning-500,blue) !important;
-    color: var(--light-500,blue) !important;
+
+.menu-wrapper {
+  width: 320px !important;
+  height:100vh;
+  transition:all 0.3s cubic-bezier(.25,.8,.25,1);
+  font-size:1.2em;
+
+  .sidebar-header {
+    height: 100px ;
+    padding: 0 10px ;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    transition: background-color 0.3s ease;
+
+    .brand {
+      font-weight: bold;
     }
 
- @media (max-width:768px){
-   .menu-wrapper{
-      position: absolute;
-     left:-98% !important;
-     top:0 !important;
+    .collapse-toggle {
+      position: relative;
+      padding: 0;
+      margin: 0;
+
+      button {
+        position: relative;
+
+        i {
+          transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 2);
+
+        }
+      }
+
+      &:hover button i {
+        transform: rotate(-90deg);
+      }
     }
- }
+
+  }
+}
+
+
+.nav {
+  .nav-item {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+    .nav-link{
+
+      padding-left:10px;
+    }
+
+
+  &:hover a{
+    color: var(--warning-500, #c4513f) !important;
+  }
+  }
+}
+
+@media (max-height:768px) and (orientation: landscape), (max-height:768px) and (orientation: portrait)
+{
+  .menu-wrapper{
+    position:absolute;
+    padding-bottom:2em;
+    top:0;
+    left:0;
+    z-index:9999999999   !important;
+    height:auto !important;
+
+  }
+  .nav{
+    width:75% !important;
+    .nav-item{
+      margin-bottom:.5em !important;
+      .nav-link{
+        font-size:.8em !important;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,20 @@
+<div class="select-group mb-3">
+  <div class="input-field d-flex" style="position:absolute">
+    <select
+      id="i{{name}}"
+      [formControl]="control"
+      required="isvalid"
+      class="form-control"
+      aria-label="{{name}}"
+      aria-describedby="{{name}}"
+      [class.ng-touched]="control.touched"
+      [class.ng-valid]="control.valid"
+    >
+      <option value="null" selected></option>
+      @for(option of options | async; track option.id){
+        <option [value]="option.id">{{option.name}}</option>
+      }
+    </select>
+    <label [for]="name" class="input-group-text"  [class.ng-required]="!control.touched" [id]=`l${name}`>{{ label }}</label>
+  </div>
+</div>

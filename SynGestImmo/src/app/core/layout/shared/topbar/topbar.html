@@ -1,31 +1,47 @@
-<div class="bg-secondary-500 h-md-5 d-flex py-5 px-5 sticky" [class]="isAuth() ? 'justify-content-end' : 'justify-content-between'">
 
-  @if (!isAuth()) {
-    <div class="brand text-warning-500">
-      {{ appName }}
-    </div>
-  }
-  <div class="d-flex align-items-center ms-auto">
-    @if (isAuth()) {
-        <div class="user-profile d-flex align-items-center mx-5 mt-0 justify-self-end">
-          <span class="avatar text-warning-500 bg-component-500 mr-2">ME</span>
-          <span class="text-primary-500"></span>
-        </div>
-      <div class="user-logout mr-5">
-        <button  matIconButton class="logout-button bg-component-500 text-warning-500" (click)="logout()">
-          <mat-icon><span  class="fa-solid fa-arrow-right-from-bracket pt-1"></span></mat-icon>
+<div class="topbar-header bg-secondary-500">
+
+  <span class="brand text-warning-500 "
+        [style.display] = "(isMobile && isCollapsed)  ? 'inline' : 'none'">SGI
+  </span>
+
+  <span class="brand  d-flex align-items-center text-warning-500"
+        [style.display] = "(!isMobile && isCollapsed)  ? 'inline' : 'none'"><h3>{{appName}}</h3>
+  </span>
+
+
+  <div class="to-right d-flex justify-content-end align-items-center w-full">
+
+    <div class="auth-options">
+      <button class="btn-circle btn-md ml-2 bg-component-500">
+        <span class=" text-warning-500">{{ initialUser }}</span>
+      </button>
+      <div class="ml-2">
+        <button matIconButton class="btn-circle btn-md bg-component-500 text-warning-500" (click)="logout()">
+          <i class="logout fa-solid fa-arrow-right-from-bracket"></i>
         </button>
       </div>
-    }
-    <div class="checkbox-apple mt-2">
+    </div>
+
+
+    <div class="checkbox-apple ">
       <input class="yep" id="check-apple" type="checkbox" (change)="toggleTheme()">
-      <label for="check-apple"></label>
-      <div style="pointer-events: none;position:absolute;font-size:12px;justify-content: space-between"
-           class="d-flex pt-1 w-full text-primary-500">
-        <span class="pl-1" [style]="isDarkMode ? 'opacity:1':'opacity:0'">Light</span>
-        <span class="pr-2" [style]="isDarkMode ? 'opacity:0':'opacity:1'">Dark</span>
+      <label
+        for="check-apple"
+        [ngStyle]="{
+        'background-color': isDarkMode ? 'var(&#45;&#45;dark-500, #000) !important' : 'var(&#45;&#45;light-500, #f1f1f1) !important',
+
+       }"
+      >
+      </label>
+      <div
+        class="theme-label pt-2 text-primary-500"
+      >
+        <i class="fa-solid fa-moon" [style]="isDarkMode ? 'color:var(&#45;&#45;dark-500,#fff)!important':'color:var(&#45;&#45;dark-500,#000'"></i>
+        <i class="fa-solid fa-sun" [style]="isDarkMode ? 'color:var(&#45;&#45;light-500,#fff) !important':'color:var(&#45;&#45;light-500,#fff)'"></i>
       </div>
     </div>
-  </div>
 
+  </div>
 </div>
+

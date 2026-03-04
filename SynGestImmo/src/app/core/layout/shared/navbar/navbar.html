@@ -1,39 +1,67 @@
-<div class="menu-wrapper p-0 m-0  ml-1 flex-column align-items-center h-screen bg-component-500">
+<div
+  class="menu-wrapper p-0 m-0 flex-column align-items-center h-screen bg-component-500"
+  [class.slideText]="isClosed"
+>
+  <div class="menu-wrapper mobile-menu-collapsed"
+       [class.mobile-menu-collapsed]="isMobile"
+  >
 
-  <div class=" pt-3 header-menu d-flex justify-content-between  align-items-center w-full">
-      <div class="brand-wrapper mx-2">
-      <h3 class="brand  text-warning-500 text-center" >SYNGESTIMMO</h3>
+    @if (!isMobile) {
+      <div class="sidebar-header align-items-center bg-secondary-500">
+        <div class="brand text-warning-500" [style]="!isClosed ? 'opacity:1':'opacity:0'">{{appName}}</div>
+        <div class="collapse-toggle align-items-center"
+             (click)="collapseMenuButton()">
+          <button class="btn-circle text-light-500 btn-md bg-warning-500">
+            <i class="fa-solid fa-ellipsis"></i>
+          </button>
+        </div>
       </div>
-      <div
-        class="menu-toggle bg-primary-500 text-surface-500 ml-5 d-flex justif-content-center align-items-center mx-5"
-        (click)="toggleButton()"
-      >
-          <i class="fa-solid fa-ellipsis ml-1 p-0"></i>
+    }
+
+    @if (isMobile) {
+      <div class="sidebar-header align-items-center h-md-5 px-2 mt-3 py-5 bg-secondary-600 rounded">
+        <div class="brand text-warning-500" [style]="!isClosed ? 'opacity:1':'opacity:0'">{{appName}}</div>
+        <div class="collapse-toggle align-items-center"
+             (click)="collapseMenuButton()">
+          <button class="btn-circle text-light-500 btn-md bg-warning-500">
+            <i class="fa-solid fa-ellipsis"></i>
+          </button>
+        </div>
       </div>
+    }
+
+    <div class="list">
+
+    <ul class="nav pr-2 pt-2" [style]="isMobile ? 'background-color:var(&#45;&#45;secondary-400,blue)':''">
+      @if (this.role === "SU") {
+        @for (item of menu; track item.label) {
+          <li class="nav-item h-md-5"
+              [routerLink]="item.url"
+              [title]="item.url"
+              (click)="closeIfMobile()">
+
+            <a class="nav-link active  text-primary-500" aria-current="page" [style]="!isClosed ? 'opacity:1':'opacity:0'">{{ item.label }}</a>
+
+
+              <button class="btn-circle btn-md  text-warning-500 hover:bg-warning-500 hover:text-light-500 ">
+                <i [class]="item.icon"></i>
+              </button>
+
+          </li>
+        }
+      }
+    </ul>
+    </div>
+    @if (this.role === "OWN") {
+      <ul class="nav  align-self-start flex-column pl-2 pt-2">
+        <li class="nav-item py-2">
+          <a class="nav-link active" aria-current="page" routerLink="/dashboard">Dashboard</a>
+        </li>
+      </ul>
+    }
   </div>
-
-  @if(this.role === "SU")
-  {
-  <ul class="nav align-self-start flex-column pr-2 pt-2">
-    <li class="nav-item" routerLink="/admin">
-      <a class="nav-link active" aria-current="page" >Dashboard</a>
-      <span class="btn btn-md circle " routerLink="/admin"><i class="fa-solid fa-sliders" ></i></span>
-    </li>
-    <li class="nav-item" routerLink="admin/users-managment">
-      <a class="nav-link active" aria-current="page" >User Management</a>
-      <span class="btn btn-md  circle hover:text-secondary-500" routerLink="admin/users-managment"><i class="fa-solid fa-users-gear" ></i></span>
-    </li>
-  </ul>
-  }
-  @if(this.role === "OWN")
-  {
-  <ul class="nav  align-self-start flex-column pl-2 pt-2">
-    <li class="nav-item py-2">
-      <a class="nav-link active" aria-current="page" routerLink="/dashboard">Dashboard</a>
-    </li>
-  </ul>
-  }
-
 
 
 </div>
+
+

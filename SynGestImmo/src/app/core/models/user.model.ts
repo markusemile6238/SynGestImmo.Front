@@ -19,10 +19,23 @@ export interface GetAllResponse
   data: UserModel[],
   isSuccess: boolean,
   statusCode: number
-}export interface GetUserResponse
+}
+export interface GetUserResponse
 {
   data: UserModel,
   isSuccess: boolean,
   statusCode: number
+}
+export interface UserResponse
+{
+  isSuccess: boolean,
+  statusCode: number
+}
+
+export interface AdduserBody{
+  username : string,
+  email: string,
+  password : string,
+  roleId: number
 }
 

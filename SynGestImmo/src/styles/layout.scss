@@ -244,23 +244,35 @@ ul {
 }
 
 //border
-.roudned {
+.rounded {
   border-radius: 10px;
 }
 
 .circle {
   border-radius: 50%;
 }
+.border-1{
+  border:1px solid;
+}
+.border-2{
+  border:2px solid;
+}
 
 
 // bouton
 .btn {
+  cursor: pointer;
   border: 0;
-  i {
-    margin-left: 50%;
-    margin-right: 50%;
-    transform: translate(-50%, 25%);
-  }
+
+}
+.btn-circle {
+  @extend .btn;
+  border-radius: 50%;
+}
+.btn-outline{
+  @extend .btn-circle;
+  border:2px solid;
+
 }
 
 .btn-sm {
@@ -272,13 +284,6 @@ ul {
 .btn-md {
   width: 35px !important;
   height: 35px !important;
-
-  i {
-    margin-left: 50%;
-    margin-right: 50%;
-    transform: translate(-50%, 0%);
-  }
-
 }
 
 .btn-lg {
@@ -300,15 +305,12 @@ ul {
 // modal
 .modal {
   position: absolute;
-  left: 0;
-  top: 0;
   padding: 1em;
-  transform: translate(50%, 50%);
-  width: 50vw !important;
-  height: 50vh !important;
+  top: 100px !important;
+  left: 30% !important;
   z-index: 9999999 !important;
   box-shadow: 0 0 5px 5px var(--surface-700, #f1f1f1) !important;
-
+  width:50% !important;
   .close-modal {
 
   }
@@ -341,14 +343,13 @@ form{
     pointer-events:none;
   }
   input{
-    min-width: 100%;
     background:transparent;
     width:auto !important;
     padding:5px 10px;
     top:0;
     outline:none;
     border:0;
-    color: var(--primary-500,#fff) !important;
+    color: var(--primary-500,#fff) ;
     border-bottom:1px solid var(--danger-500,red);
     &:valid{
 
@@ -363,4 +364,8 @@ form{
   padding:3px 10px;
   color:#1a1c2b;
   border-bottom:1px solid var(--success-500,green);
+}
+
+.overflow-h{
+  overflow:hidden;
 }

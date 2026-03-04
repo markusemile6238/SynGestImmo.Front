@@ -1,0 +1,107 @@
+.input-group {
+  position: relative;
+  height: 2.5em;
+  width: 340px;
+  max-width: 340px;
+
+  .input-field {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    input.form-control,
+    label.input-group-text,
+    span.eye-icon,
+    hr {
+      position: absolute;
+      padding-top: .5em;
+      top: 12px;
+      left: 5px;
+      transition: all 0.5s cubic-bezier(.25, .8, .25, 1);
+    }
+
+    .eye-icon {
+      right: 0;
+      transform: translateX(100%);
+    }
+
+    input.form-control {
+      padding-left: 5px;
+      font-size: 1.2em;
+      border: 0;
+      outline: none;
+      width: 100%;
+      background: transparent;
+      text-transform: capitalize;
+      padding-bottom: -5px;
+      border-bottom: 1px solid #eee;
+    }
+
+
+    label.input-group-text {
+      pointer-events: none;
+      color:red;
+    }
+
+    hr {
+      padding-top: 0;
+      margin-top: 2em;
+      width: 100%;
+      transform: scaleX(0);
+      height: 1px;
+      transform-origin: center center;
+    }
+
+    // animation line
+    input.form-control:focus ~ hr {
+      transform: scaleX(1);
+    }
+
+    input.form-control.ng-valid ~ hr {
+      background-color: green !important;
+      transform: scaleX(1);
+    }
+
+    input.form-control.ng-touched.ng-invalid ~ hr {
+      background-color: red !important;
+      transform: scaleX(1);
+    }
+
+    input.form-control.ng-touched:not(:focus) ~ hr {
+      transform: scaleX(0);
+    }
+
+    input.form-control.ng-touched.ng-valid:not(:focus) ~ hr {
+      transform: scaleX(1);
+    }
+
+    // animation label
+    input.form-control:focus ~ label.input-group-text,
+    input.form-control.ng-valid ~ label.input-group-text,
+    input.form-control.ng-valid:not(:focus) ~ label.input-group-text {
+      color: green !important;
+      transform: translateY(-1em) !important;
+    }
+
+    input.form-control.ng-invalid ~ label
+    {
+      color: red;
+      &:after{
+        content: "*";
+      }
+    }
+    input.form-control.invalid-with-content ~ label
+    {
+      color: red;
+      transform: translateY(-1em) !important;
+    }
+
+
+
+
+  }
+}
+
+
