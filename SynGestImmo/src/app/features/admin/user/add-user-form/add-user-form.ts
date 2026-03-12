@@ -12,6 +12,7 @@ import {
 import {FormInput} from '../../../shared/components/form/input/formInput';
 import {Select} from '../../../shared/components/form/select/select';
 import {DisplayErrors} from '../../../shared/components/form/display-errors/display-errors';
+import {AddUserBody} from '../../../../core/models/user.model';
 
 @Component({
   selector: 'app-add-user-form',
@@ -40,13 +41,14 @@ export class AddUserForm {
   errorMessage:ErrorFormModel[]=[
     {name:'username',type:'required',message:'Username is required'},
     {name:'email',type:'required',message:'Email is required'},
+    {name:'email',type:'email',message:'Email is invalid'},
     {name:'password',type:'required',message:'Password is required'},
     {name:'confirmPassword',type:'required',message:'Password confirmation is required'},
     {name:'confirmPassword',type:'mismatchPassword',message:'Password confirmation not match'},
     {name:'roleId',type:'noValueSelected',message:'Please choose a role'},
   ]
 
-  @Output() newUser= new EventEmitter<AddUserForm>();
+  @Output() newUser  = new EventEmitter<AddUserBody>();
 
 
 
@@ -75,11 +77,17 @@ export class AddUserForm {
   }
 
   sendForm(){
-    if(this.form.valid){
-        //this.newUser.emit(this.form.value)
-      console.log(this.form.value)
-    }else{
-
+    if(this.form.valid) {
+      const user: AddUserBody = {
+        username : this.form.controls['username']!.value,
+        email : this.form.controls['email']!.value,
+        password : this.form.controls['password']!.value,
+        roleId : Number(this.form.controls['roleId']!.value)
+      };
+      this.newUser.emit(user);
+    }else
+    {
+      console.error("form not valid")
 
     }
   }

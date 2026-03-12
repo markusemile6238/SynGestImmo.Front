@@ -1,4 +1,4 @@
-<div class="errorMessage">
+<div class="errorMessage text-center">
   @for( entry of form.controls | keyvalue;track entry.key){
     @if(entry.value.touched && entry.value.invalid){
       @for(error of entry.value.errors | keyvalue; track error.key){

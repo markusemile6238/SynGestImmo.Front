@@ -1,4 +1,4 @@
-import {Component, Input, input} from '@angular/core';
+import {Component, EventEmitter, Input, input, Output} from '@angular/core';
 import {UserModel} from '../../../../../core/models/user.model';
 import {UserUtilityService} from '../../../services/user-utility-service';
 import {DatePipe, NgStyle} from '@angular/common';
@@ -22,6 +22,7 @@ export class UserId {
   updateMode:boolean = false;
 
   @Input() user!: UserModel;
+  @Output() userChanged = new EventEmitter();
 
   form! : FormGroup;
 
@@ -46,10 +47,12 @@ export class UserId {
       this.user.username=this.form.controls['username'].value;
       this.user.email=this.form.controls['email'].value;
       this.user.isActive=this.form.controls['isActive'].value === true;
+      this.userChanged.emit(this.form.value);
+      // envoyer la mise ajour vers le backend pour confirmation du gestionnaire avant mise a jour de la db
+      this.updateMode=false;
+    }else{
+      this.snackBar.success("Successful update and sent for confirmation by the manager")
     }
-    // envoyer la mise ajour vers le backend pour confirmation du gestionnaire avant mise a jour de la db
-    this.snackBar.success("Successful update and sent for confirmation by the manager")
-    this.updateMode=false;
   }
 
 

@@ -16,29 +16,56 @@
       padding-top: .5em;
       top: 12px;
       left: 5px;
-      transition: all .3s cubic-bezier(.25,.8,.25,1);
+      transition: all .3s cubic-bezier(.25, .8, .25, 1);
     }
+
     select.form-control {
-      width:100%;
-      outline:0;
-      border:none;
+      width: 100%;
+      outline: 0;
+      border: none;
       background: transparent;
       text-transform: capitalize;
       border-bottom: 1px solid #eee;
     }
-    select.form-control:not(.ng-valid) ~ label.input-group-text{
-      color:red;
-      &:after{
-        content:"*"
+
+
+    select.form-control:not(.ng-valid) ~ label.input-group-text {
+      color: red;
+
+      &:after {
+        content: "*"
       }
     }
+
     select.form-control.ng-valid ~ label.input-group-text {
-      transform:translateY(-1em);
-      color:green;
+      transform: translateY(-1.2em);
+      color: green;
     }
-    option{
-      border:0;
+
+    option {
+      border: 0;
     }
 
   }
+}
+
+select {
+  background-color: var(--surface-600, #fff) !important;
+  color: var(--warning-500, orange) !important;
+  outline: none;
+
+  &:focus {
+    outline: none;
+    border: none;
+    box-shadow: none;
+  }
+}
+
+select.form-control.ng-valid {
+  color: var(--primary-500, #000) !important;
+}
+
+label.input-group-text{
+  user-select:none;
+  pointer-events: none;
 }

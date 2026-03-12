@@ -2,7 +2,7 @@
 
 
   <h4 class="text-warning-500 mb-4 ">Add new user</h4>
-  <form [formGroup]="form" (ngSubmit)="sendForm()" class="d-flex w-full">
+  <form [formGroup]="form" (ngSubmit)="sendForm()" class="d-flex w-full justify-content-around">
     <div class="fields">
 
       <app-input name="username" type="text"  [control]="form.controls.username" label="Username" />
@@ -13,14 +13,20 @@
 
 
     </div>
-    <div>
 
-      <div class="errors-display flex-column w-full align-items-center">
+      <div class="errors-display flex-column w-full align-items-center justify-content-center">
         <app-display-errors [form]="form" [errorMessage]="errorMessage" />
 
-      </div>
 
-    <button class="w-full inline btn btn-xl rounded" type="submit" [disabled]="!form.valid">Send</button>
+    <button
+      class="w-full btn mt-3 btn-xl rounded no-select"
+      style="z-index:999"
+      type="submit"
+      [disabled]="!form.valid"
+      [class.bt-valid]="form.valid"
+    >
+      Send
+    </button>
     </div>
 
   </form>

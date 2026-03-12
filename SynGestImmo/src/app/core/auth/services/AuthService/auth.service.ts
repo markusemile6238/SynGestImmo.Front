@@ -10,7 +10,7 @@ import {JwtService} from '../jwtService/jwt.service';
 })
 export class AuthService {
 
-  private readonly apiUrl = 'https://localhost:7123/api/auth';
+  private readonly apiUrl = 'https://localhost:7000';
 
   constructor(
     private http: HttpClient,
@@ -20,7 +20,7 @@ export class AuthService {
 
   login(request: LoginRequest) {
     return this.http
-        .post<ApiResponse<LoginResponse>>(`${this.apiUrl}/login`, request, {withCredentials: true})
+        .post<ApiResponse<LoginResponse>>(`${this.apiUrl}/identity/api/auth/login`, request, {withCredentials: true})
       .pipe(
         map(res=>{
           if(!res.isSuccess || !res.data){
@@ -37,7 +37,7 @@ export class AuthService {
   logout():void {
 
     this.http
-      .post(`${this.apiUrl}/logout`, {withCredentials: true})
+      .post(`${this.apiUrl}/identity/api/auth/logout`, {withCredentials: true})
       .subscribe();
 
     this.tokenService.clear();
@@ -81,7 +81,7 @@ export class AuthService {
 
   refresh(){
     return this.http.post<{accessToken:string }>(
-      `${this.apiUrl}/refresh`,{},{withCredentials:true}
+      `${this.apiUrl}/identity/auth/refresh`,{},{withCredentials:true}
     ).pipe(
       tap(res=>{this.tokenService.setAccessToken(res.accessToken)})
     )
@@ -89,7 +89,7 @@ export class AuthService {
 
   changePassword(request:ChangePasswordRequest){
     return this.http
-      .post<ApiResponse>(`${this.apiUrl}/auth/change-password`,request, {withCredentials:true});
+      .post<ApiResponse>(`${this.apiUrl}/identity/api/auth/change-password`,request, {withCredentials:true});
   }
 
 }

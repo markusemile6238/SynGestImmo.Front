@@ -138,7 +138,7 @@
       </div>
     </div>
     <div class="modal-content">
-      <app-add-user-form/>
+      <app-add-user-form (newUser)="createNewUser($event)"/>
     </div>
   </div>
 }

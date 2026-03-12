@@ -33,10 +33,10 @@
       border: 0;
       outline: none;
       width: 100%;
+      color:var(--primary-500,#000);
       background: transparent;
-      text-transform: capitalize;
       padding-bottom: -5px;
-      border-bottom: 1px solid #eee;
+     border-bottom: 1px solid #eee;
     }
 
 
@@ -82,7 +82,7 @@
     input.form-control.ng-valid ~ label.input-group-text,
     input.form-control.ng-valid:not(:focus) ~ label.input-group-text {
       color: green !important;
-      transform: translateY(-1em) !important;
+      transform: translateY(-1.2em) !important;
     }
 
     input.form-control.ng-invalid ~ label
@@ -95,11 +95,13 @@
     input.form-control.invalid-with-content ~ label
     {
       color: red;
-      transform: translateY(-1em) !important;
+      transform: translateY(-1.2em) !important;
     }
 
-
-
+    .fa-solid{
+      width:auto;
+      color:var(--primary-500,#000);
+    }
 
   }
 }

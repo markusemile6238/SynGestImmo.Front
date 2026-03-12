@@ -1,0 +1,89 @@
+.input-group {
+  position: relative;
+  height: 2.5em;
+  width: 340px;
+  max-width: 340px;
+}
+.input-group .input-field {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.input-group .input-field input.form-control,
+.input-group .input-field label.input-group-text,
+.input-group .input-field span.eye-icon,
+.input-group .input-field hr {
+  position: absolute;
+  padding-top: 0.5em;
+  top: 12px;
+  left: 5px;
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.input-group .input-field .eye-icon {
+  right: 0;
+  transform: translateX(100%);
+}
+.input-group .input-field input.form-control {
+  padding-left: 5px;
+  font-size: 1.2em;
+  border: 0;
+  outline: none;
+  width: 100%;
+  color: var(--primary-500, #000);
+  background: transparent;
+  padding-bottom: -5px;
+  border-bottom: 1px solid #eee;
+}
+.input-group .input-field label.input-group-text {
+  pointer-events: none;
+  color: red;
+}
+.input-group .input-field hr {
+  padding-top: 0;
+  margin-top: 2em;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  transform-origin: center center;
+}
+.input-group .input-field input.form-control:focus ~ hr {
+  transform: scaleX(1);
+}
+.input-group .input-field input.form-control.ng-valid ~ hr {
+  background-color: green !important;
+  transform: scaleX(1);
+}
+.input-group .input-field input.form-control.ng-touched.ng-invalid ~ hr {
+  background-color: red !important;
+  transform: scaleX(1);
+}
+.input-group .input-field input.form-control.ng-touched:not(:focus) ~ hr {
+  transform: scaleX(0);
+}
+.input-group .input-field input.form-control.ng-touched.ng-valid:not(:focus) ~ hr {
+  transform: scaleX(1);
+}
+.input-group .input-field input.form-control:focus ~ label.input-group-text,
+.input-group .input-field input.form-control.ng-valid ~ label.input-group-text,
+.input-group .input-field input.form-control.ng-valid:not(:focus) ~ label.input-group-text {
+  color: green !important;
+  transform: translateY(-1.2em) !important;
+}
+.input-group .input-field input.form-control.ng-invalid ~ label {
+  color: red;
+}
+.input-group .input-field input.form-control.ng-invalid ~ label:after {
+  content: "*";
+}
+.input-group .input-field input.form-control.invalid-with-content ~ label {
+  color: red;
+  transform: translateY(-1.2em) !important;
+}
+.input-group .input-field .fa-solid {
+  width: auto;
+  color: var(--primary-500, #000);
+}
+
+/*# sourceMappingURL=formInput.css.map */

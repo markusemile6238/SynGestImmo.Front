@@ -9,7 +9,7 @@ import {SnackBarService} from './snack-bar-service';
 })
 export class RoleService {
 
-  private basePath: string = "https://localhost:7123/api/auth/admin/role"
+  private basePath: string = "https://localhost:7000/identity/api/auth/admin/role"
   private userRole: RoleModel[] = [];
 
   constructor(

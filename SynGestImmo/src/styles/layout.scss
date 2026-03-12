@@ -203,6 +203,10 @@ $SpacingPoints: (
   align-self: flex-start;
 }
 
+.justify-content-center{
+  justify-content: center;
+}
+
 .justify-content-end {
   justify-content: flex-end;
 }
@@ -213,6 +217,10 @@ $SpacingPoints: (
 
 .justify-content-around {
   justify-content: space-around;
+}
+
+.justify-items-center{
+  justify-items: center;
 }
 
 .justify-self-end {
@@ -260,6 +268,11 @@ ul {
 
 
 // bouton
+
+.no-select{
+  user-select: none;
+}
+
 .btn {
   cursor: pointer;
   border: 0;
@@ -322,49 +335,7 @@ form{
   display:inherit;
   width:inherit;
 }
-.input-group{
-    position:relative;
-    height:2.2rem;
-  label,input{
-    position:absolute;
-    line-height:1.2rem;
-    left:0;
-    font-size:1rem;
-    letter-spacing:0.1rem;
-    font-family: poppins, serif;
-  }
-  label{
-    top:50%;
-    padding-top:5px;
-    transform:translateY(-50%);
-    padding-left:5px;
-    background-color:transparent;
-    transition:all 0.3s ease-in-out;
-    pointer-events:none;
-  }
-  input{
-    background:transparent;
-    width:auto !important;
-    padding:5px 10px;
-    top:0;
-    outline:none;
-    border:0;
-    color: var(--primary-500,#fff) ;
-    border-bottom:1px solid var(--danger-500,red);
-    &:valid{
 
-    border-bottom:1px solid var(--success-500,green);
-    }
-  }
-}
-.input-group input:focus + label,.input-group input:valid + label {
-  top:0;
-  left:10px;
-  border-radius:5px;
-  padding:3px 10px;
-  color:#1a1c2b;
-  border-bottom:1px solid var(--success-500,green);
-}
 
 .overflow-h{
   overflow:hidden;

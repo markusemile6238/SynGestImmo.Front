@@ -32,7 +32,7 @@ export interface UserResponse
   statusCode: number
 }
 
-export interface AdduserBody{
+export interface AddUserBody{
   username : string,
   email: string,
   password : string,

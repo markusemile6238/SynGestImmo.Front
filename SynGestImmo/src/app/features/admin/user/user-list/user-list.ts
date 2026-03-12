@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import {UserModel} from '../../../../core/models/user.model';
+import {AddUserBody, UserModel} from '../../../../core/models/user.model';
 import {CommonModule} from '@angular/common';
 import {ActivatedRoute, RouterLink} from '@angular/router';
 import { MatTableModule} from '@angular/material/table';
 import {AddUserForm} from '../add-user-form/add-user-form';
 import {DragDropModule} from '@angular/cdk/drag-drop'
 import {UserService} from '../../../../core/services/user-service';
+import {SnackBarService} from '../../../../core/services/snack-bar-service';
 
 @Component({
   selector: 'app-user-list',
@@ -25,6 +26,7 @@ export class UserList {
   constructor(
     private userService: UserService,
     private route: ActivatedRoute,
+    private snackBar : SnackBarService
   ){
   }
 
@@ -32,8 +34,20 @@ export class UserList {
     this.datasource = this.route.snapshot.data['users'];
   }
 
-  createNewUser(user: AddUserForm){
-    this.userService.createNewUser(user).subscribe()
+  createNewUser(user: AddUserBody){
+    alert(user.username);
+    this.userService.createNewUser(user).subscribe({
+      next: (response) => {
+        if(response.isSuccess){
+          this.snackBar.success('User created successfully.');
+        }else{
+          this.snackBar.error('User created failed');
+          console.error(response);
+        }
+      },error: (error)=>{
+        this.snackBar.error(error.message);
+      }
+    })
   }
 
 }

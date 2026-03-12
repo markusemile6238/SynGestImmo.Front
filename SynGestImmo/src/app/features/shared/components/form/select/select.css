@@ -1,0 +1,63 @@
+.select-group {
+  position: relative;
+  height: 2.5em;
+  width: 340px;
+  max-width: 340px;
+}
+.select-group .input-field {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.select-group .input-field select.form-control, .select-group .input-field label.input-group-text {
+  position: absolute;
+  padding-top: 0.5em;
+  top: 12px;
+  left: 5px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.select-group .input-field select.form-control {
+  width: 100%;
+  outline: 0;
+  border: none;
+  background: transparent;
+  text-transform: capitalize;
+  border-bottom: 1px solid #eee;
+}
+.select-group .input-field select.form-control:not(.ng-valid) ~ label.input-group-text {
+  color: red;
+}
+.select-group .input-field select.form-control:not(.ng-valid) ~ label.input-group-text:after {
+  content: "*";
+}
+.select-group .input-field select.form-control.ng-valid ~ label.input-group-text {
+  transform: translateY(-1.2em);
+  color: green;
+}
+.select-group .input-field option {
+  border: 0;
+}
+
+select {
+  background-color: var(--surface-600, #fff) !important;
+  color: var(--warning-500, orange) !important;
+  outline: none;
+}
+select:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+select.form-control.ng-valid {
+  color: var(--primary-500, #000) !important;
+}
+
+label.input-group-text {
+  user-select: none;
+  pointer-events: none;
+}
+
+/*# sourceMappingURL=select.css.map */

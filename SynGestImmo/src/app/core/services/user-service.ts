@@ -1,8 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {AdduserBody, GetAllResponse, GetUserResponse, UserModel, UserResponse} from '../models/user.model';
+import {AddUserBody, GetAllResponse, GetUserResponse, UserModel, UserResponse} from '../models/user.model';
 import {map, Observable} from 'rxjs';
-import {AddUserForm} from '../../features/admin/user/add-user-form/add-user-form';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +9,7 @@ import {AddUserForm} from '../../features/admin/user/add-user-form/add-user-form
 })
 export class UserService {
 
-  private basePath: string = "https://localhost:7123/api/admin/user/"
+  private basePath: string = "https://localhost:7000/identity/api/admin/user/"
   private userList: UserModel[] = [];
 
   constructor(
@@ -41,7 +40,7 @@ export class UserService {
       );
   }
 
-  createNewUser(user: AddUserForm): Observable<UserResponse>{
+  createNewUser(user: AddUserBody): Observable<UserResponse>{
     return this.http.post<UserResponse>(`${this.basePath}`, user, {withCredentials: true}).
       pipe(
         map((res: UserResponse)=>{

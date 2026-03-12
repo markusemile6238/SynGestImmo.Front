@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {UserId} from '../user-id/user-id';
 import {UserModel} from '../../../../../core/models/user.model';
+import {UserService} from '../../../../../core/services/user-service';
+import {SnackBarService} from '../../../../../core/services/snack-bar-service';
 
 
 @Component({
@@ -17,11 +19,16 @@ export class Detail {
 
 
   constructor(
+    private userService : UserService,
     private route : ActivatedRoute,
+    private snackbar : SnackBarService
   ){  }
 
   ngOnInit() : void {
     this.user = this.route.snapshot.data['user'];
+  }
+
+  updateUser(user : UserModel){
 
   }
 

@@ -10,7 +10,7 @@
 
 <div class="px-2 userdetail-page text-primary-500 d-flex justify-content-start wrap">
   <div class="id-card w-full">
-    <app-user-id [user]="user"/>
+    <app-user-id [user]="user" (userChanged)="updateUser($event)"/>
   </div>
 </div>
 }
