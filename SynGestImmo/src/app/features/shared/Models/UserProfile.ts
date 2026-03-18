@@ -15,7 +15,7 @@ export interface UserProfile{
 }
 
 export enum EntityTypeEnum {
-  Entites = 0,
+  Entities = 0,
   Owners = 1,
   Persons = 2,
   Tenants = 3,
