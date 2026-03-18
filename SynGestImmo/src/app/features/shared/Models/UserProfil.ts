@@ -1,5 +1,5 @@
 ﻿
-export interface UserProfil{
+export interface UserProfile{
     Id: string;
     EntityType : EntityTypeEnum;
     DisplayName : string;
