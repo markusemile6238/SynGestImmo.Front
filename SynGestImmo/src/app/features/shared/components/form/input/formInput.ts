@@ -18,6 +18,7 @@ export class FormInput {
   @Input() name!: string;
   @Input() type!: string;
   @Input() label!: string;
+  @Input()  value!: string;
 
   isvalid :boolean=false;
 

@@ -19,3 +19,32 @@
   background-color:var(--info-500, #add0c9) !important;
   color:var(--light-500, #5c5c5c) !important;
 }
+
+.component-card, .empty-component {
+  padding: 1rem;
+  margin: 1em 0.5em;
+  min-height: 15vh;
+  border-radius: 10px;
+  box-shadow: 0 0 10px var(--secondary-400, #afaff3);
+  overflow: hidden;
+}
+.empty-component i {
+  opacity: 0.1 !important;
+  border: 5px solid;
+  border-radius: 50%;
+  padding: 1em;
+  box-shadow: 0 0 0 0 var(--warning-200, #afaff3) !important;
+  transition: box-shadow 0.25s ease-in-out;
+
+  &:hover {
+    opacity: 0.3 !important;
+    cursor: pointer;
+    box-shadow: 0 3px 10px 3px var(--warning-200, #afaff3) !important;
+
+
+  }
+}
+
+.component-icon {
+  font-size: 4em;
+}

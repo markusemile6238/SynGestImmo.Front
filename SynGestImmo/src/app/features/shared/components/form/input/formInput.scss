@@ -19,7 +19,7 @@
       padding-top: .5em;
       top: 12px;
       left: 5px;
-      transition: all 0.5s cubic-bezier(.25, .8, .25, 1);
+      transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
     }
 
     .eye-icon {
@@ -33,16 +33,20 @@
       border: 0;
       outline: none;
       width: 100%;
-      color:var(--primary-500,#000);
+      color: var(--primary-500, #000);
       background: transparent;
       padding-bottom: -5px;
-     border-bottom: 1px solid #eee;
+      border-bottom: 1px solid var(--primary-200) !important;
+
+      &:valid {
+        border-bottom: 0;
+      }
     }
 
 
     label.input-group-text {
       pointer-events: none;
-      color:red;
+      color: red;
     }
 
     hr {
@@ -52,6 +56,12 @@
       transform: scaleX(0);
       height: 1px;
       transform-origin: center center;
+      border: none;
+    }
+
+    input.form-control:focus,
+    input.form-control.ng-touched {
+      border-bottom: 0 !important;
     }
 
     // animation line
@@ -70,7 +80,7 @@
     }
 
     input.form-control.ng-touched:not(:focus) ~ hr {
-      transform: scaleX(0);
+      transform: scaleX(1);
     }
 
     input.form-control.ng-touched.ng-valid:not(:focus) ~ hr {
@@ -83,27 +93,38 @@
     input.form-control.ng-valid:not(:focus) ~ label.input-group-text {
       color: green !important;
       transform: translateY(-1.2em) !important;
+      font-weight: bold;
     }
-
-    input.form-control.ng-invalid ~ label
-    {
+    input.form-control.ng-invalid ~ label {
       color: red;
-      &:after{
+
+      &:after {
         content: "*";
       }
     }
-    input.form-control.invalid-with-content ~ label
-    {
+
+    input.form-control.invalid-with-content ~ label {
       color: red;
       transform: translateY(-1.2em) !important;
     }
 
-    .fa-solid{
-      width:auto;
-      color:var(--primary-500,#000);
+    .fa-solid {
+      width: auto;
+      color: var(--primary-500, #000);
     }
 
   }
 }
 
+input[type='date'].ng-invalid::-webkit-datetime-edit-day-field,
+input[type='date'].ng-invalid::-webkit-datetime-edit-month-field,
+input[type='date'].ng-invalid::-webkit-datetime-edit-year-field,
+input[type='date'].ng-invalid::-webkit-datetime-edit-text,
+{
+  color:transparent !important;
+}
+input[type='date']::-webkit-calendar-picker-indicator:after{
+  color:var(--warning-500, #000) !important;
+
+}
 

@@ -4,14 +4,16 @@ import {UserId} from '../user-id/user-id';
 import {UserModel} from '../../../../../core/models/user.model';
 import {UserService} from '../../../../../core/services/user-service';
 import {SnackBarService} from '../../../../../core/services/snack-bar-service';
-import {Profil} from '../../profil/profil';
+import {Profile} from '../../profile/profile';
+import {Documents} from '../../documents/documents';
 
 
 @Component({
   selector: 'app-detail',
   imports: [
     UserId,
-    Profil
+    Profile,
+    Documents
   ],
   templateUrl: './detail.html',
   styleUrl: './detail.scss',

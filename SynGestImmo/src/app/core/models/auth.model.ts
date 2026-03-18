@@ -1,14 +1,4 @@
-﻿export interface ApiResponse<T = void>{
-  data?: T;
-  isSuccess: boolean;
-  statusCode: number;
-  message?: string;
-  error?:{
-    code:string;
-    message: string;
-    statusCode: number;
-  }
-}
+﻿
 
 //LOGIN
 export interface LoginRequest{

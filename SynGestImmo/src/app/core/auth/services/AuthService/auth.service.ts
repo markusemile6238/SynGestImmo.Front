@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { TokenService } from '../tokenService/token.service';
 import { HttpClient } from '@angular/common/http';
-import {ApiResponse, ChangePasswordRequest, LoginRequest, LoginResponse} from '../../../models/auth.model';
+import { ChangePasswordRequest, LoginRequest, LoginResponse} from '../../../models/auth.model';
 import {map, tap} from 'rxjs';
 import {JwtService} from '../jwtService/jwt.service';
+import {ApiResponse} from '../../../../features/shared/Models/ApiResponse';
 
 @Injectable({
   providedIn: 'root',

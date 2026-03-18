@@ -1883,6 +1883,9 @@
   width: auto !important;
 }
 
+.w-max{
+  width: max-content !important;
+}
 .h-auto {
   height: auto !important;
 }

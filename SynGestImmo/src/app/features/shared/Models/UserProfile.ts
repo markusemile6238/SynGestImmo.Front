@@ -1,5 +1,5 @@
 ﻿
-export interface UserProfil{
+export interface UserProfile{
     Id: string;
     EntityType : EntityTypeEnum;
     DisplayName : string;
@@ -15,7 +15,7 @@ export interface UserProfil{
 }
 
 export enum EntityTypeEnum {
-  Entites = 0,
+  Entities = 0,
   Owners = 1,
   Persons = 2,
   Tenants = 3,
