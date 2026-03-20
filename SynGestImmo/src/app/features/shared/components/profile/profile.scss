@@ -3,7 +3,7 @@
   font-size: 4em;
 }
 
-i {
+.empty-component i {
   opacity: 0.1 !important;
   border: 5px solid;
   border-radius: 50%;
@@ -22,4 +22,19 @@ i {
 .profile-component{
   width:40%;
   min-height:40%;
+}
+.data-row{
+  display:flex;
+  align-items: start;
+  gap:12px;
+  padding: 8px 0;
+  .data-key{
+    width:120px;
+  }
+}
+.update-pen{
+  top:0;
+  right:0;
+  color:var(--warning-500, #d60d0d);
+  cursor:pointer;
 }

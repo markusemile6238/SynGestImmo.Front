@@ -3,17 +3,17 @@ import {ActivatedRoute} from '@angular/router';
 import {UserId} from '../user-id/user-id';
 import {UserModel} from '../../../../../core/models/user.model';
 import {UserService} from '../../../../../core/services/user-service';
-import {SnackBarService} from '../../../../../core/services/snack-bar-service';
-import {Profile} from '../../profile/profile';
 import {Documents} from '../../documents/documents';
+import {Profile} from '../../profile/profile';
+import {SnackBarService} from '../../../../../core/services/snack-bar-service';
 
 
 @Component({
   selector: 'app-detail',
   imports: [
     UserId,
-    Profile,
-    Documents
+    Documents,
+    Profile
   ],
   templateUrl: './detail.html',
   styleUrl: './detail.scss',

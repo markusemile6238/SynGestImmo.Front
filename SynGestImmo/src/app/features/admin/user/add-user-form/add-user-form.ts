@@ -1,8 +1,8 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {ChangeDetectorRef, Component, EventEmitter, Output} from '@angular/core';
 import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {RoleModel} from '../../../../core/models/role.model';
 import {RoleService} from '../../../../core/services/role-service';
-import {Observable} from 'rxjs';
+import {finalize, Observable} from 'rxjs';
 import {CommonModule} from '@angular/common';
 import {ErrorFormModel} from '../../../shared/components/form/models/errorFormModel';
 import {selectValueValidator} from '../../../shared/components/form/validators/selectValueValidator';
@@ -23,12 +23,14 @@ import {AddUserBody} from '../../../../core/models/user.model';
 export class AddUserForm {
 
   constructor(
-    private roleService: RoleService
+    private roleService: RoleService,
+    private cdr: ChangeDetectorRef
+
   ){}
 
   errorMessages!: string[];
   isLoading:boolean = false;
-  roles$! : Observable<RoleModel[]>;
+  roles! : {id:number, name:string}[];
 
   form!: FormGroup<{
     username: FormControl<string>;
@@ -54,7 +56,6 @@ export class AddUserForm {
 
    ngOnInit() {
     this.isLoading=true;
-    this.roles$ = this.roleService.getAllRole();
 
      this.form = new FormGroup({
          username: new FormControl('', {nonNullable: true, validators: [Validators.required]}),
@@ -73,7 +74,20 @@ export class AddUserForm {
        }
      })
 
-    this.isLoading=false;
+     this.roleService.getAllRole().pipe(
+       finalize(()=>{
+         this.isLoading=false;
+         this.cdr.detectChanges();
+       })
+     ).subscribe({
+       next: (res)=>{
+         this.roles = res.map(r=>({id:r.id,name:r.name}));
+       },
+       error:(err)=>{
+         console.log(err);
+       }
+     });
+
   }
 
   sendForm(){

@@ -12,7 +12,8 @@
   <div class="id-card w-full">
     <app-user-id [user]="user" (userChanged)="updateUser($event)"/>
   </div>
-  <app-profile [userEntityId]="user.entityId"></app-profile>
+  <app-profile [userEntityId]="user.entityId" />
+
   <app-documents [userEntityId]="user.entityId"></app-documents>
 </div>
 }

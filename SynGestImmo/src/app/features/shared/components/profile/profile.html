@@ -1,46 +1,57 @@
-@if (userProfile | async) {
-  <div class="component-card d-flex bg-component-500 align-items-center relative">
-    <h2 class="component-title">Profile</h2>
-
-
+@if (loaded && tableColumns.length > 0 && !showForm) {
+  <div class="component-card w-md-40">
+    <div class="profile-content">
+      <div class="content-title relative">
+        <h2 class="my-2 text-warning-500">Profile</h2>
+        <span class="absolute update-pen" (click)="showForm=!showForm"><i class="fa-solid fa-pen"></i></span>
+      </div>
+      @for (item of tableColumns; track item.key) {
+        @if (item.value) {
+          <div class="data-row">
+            <div class="data-key f-bold">{{ item.value }}</div>
+            :
+            <div class="data-value">{{ userProfile?.[item.key] }}</div>
+          </div>
+        }
+      }
+    </div>
   </div>
-} @else {
-
-  <div class="empty-component flex-column justify-content-center align-content-center w-md-40 h-auto"
-       [class.profile-component]="!displayEmptyForm">
-    @if (!displayEmptyForm) {
-      <span class="component-icon w-full text-center ">
-        <i class="fa-solid fa-user-plus text-primary-200" (click)="displayEmptyForm=!displayEmptyForm"></i>
-    </span>
-    } @else {
-
-      <h2>Profile</h2>
+}@else {
+  @if (loaded && showForm) {
+    <div class="component-card empty-component w-md-40">
       <div class="form-wrapper d-flex justify-content-between align-item-start">
-        <form [formGroup]="form" (ngSubmit)="createProfile()" class="w-full d-flex">
+        <form
+          [formGroup]="form"
+          (ngSubmit)="saveProfile()"
+          class="w-full d-flex"
+        >
           <div class="fields flex-column justify-items-center">
-            <app-input name="id" type="text" [value]="userEntityId" [control]="form.controls.id" label="Id"/>
+            <app-input name="entityId" type="text" [value]="userEntityId" [control]="form.controls.entityId" label="Id"/>
             <app-input name="displayName" type="text" [control]="form.controls.displayName" label="Display name"/>
             <app-input name="email" type="email" [control]="form.controls.email" label="Email address"/>
             <app-input name="phone" type="text" [control]="form.controls.phone" label="Phone"/>
-            <app-input name="lastname" type="text" [control]="form.controls.lastname" label="Lastname"/>
-            <app-input name="firstname" type="text" [control]="form.controls.firstname" label="Firstname"/>
+            <app-input name="lastname" type="text" [control]="form.controls.lastName" label="Lastname"/>
+            <app-input name="firstname" type="text" [control]="form.controls.firstName" label="Firstname"/>
             <app-input name="birthDate" type="date" [control]="form.controls.birthDate" label="BirthDay"/>
             <app-input name="nationalId" type="text" [control]="form.controls.nationalId" label="National Id"/>
+            <app-select name="entityType" [control]="form.controls.entityType" selectLabel="--- Assign a entity type here ---" label="Entity type" [options]="entityTypeOptionsForm"/>
           </div>
           <div class="flex-column align-items-center justify-content-center w-full">
-            <app-display-errors [form]="form" [errorMessage]="createNewProfileErrorMessage" class="my-2"/>
+            <app-display-errors [form]="form" [errorMessage]="errors" class="my-2"/>
             <div class="action-button d-flex justify-content-around">
-              <button class="btn btn-xl rounded bg-warning-500 mx-2" (click)="createProfile()" [disabled]="!form.valid">Create
+              <button
+                class="btn btn-xl rounded bg-warning-500 mx-2"
+                [disabled]="!form.valid"
+                [innerText]="userProfile ? 'update': 'create' " ]>
               </button>
-              <button class="btn btn-xl rounded bg-warning-500 mx-2" (click)="form.reset()">Reset
+
+              <button class="btn btn-xl rounded bg-warning-500 mx-2"  type="button" (click)="userProfile!==undefined ? restoreData() : form.reset()">Reset
+
               </button>
             </div>
           </div>
         </form>
       </div>
-    }
-
-
-  </div>
-
+    </div>
+  }
 }

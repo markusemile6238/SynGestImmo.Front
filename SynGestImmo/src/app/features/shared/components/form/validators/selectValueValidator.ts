@@ -6,5 +6,5 @@ export const selectValueValidator:ValidatorFn =
     const selectedValue:string = control.value;
 
 
-    return (selectedValue != null && selectedValue != "null") ? null : { noValueSelected : true}
+    return (selectedValue != null && selectedValue != "-1") ? null : { noValueSelected : true}
   }

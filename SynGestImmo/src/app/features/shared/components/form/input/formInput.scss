@@ -88,6 +88,7 @@
     }
 
     // animation label
+    input.form-control:disabled ~ label,
     input.form-control:focus ~ label.input-group-text,
     input.form-control.ng-valid ~ label.input-group-text,
     input.form-control.ng-valid:not(:focus) ~ label.input-group-text {
